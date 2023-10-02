@@ -15,31 +15,25 @@ const roundsRest = document.querySelector('[data-js="rounds-rest"]');
 
 const playForm = document.querySelector('[data-js="play-choices"]');
 const rock = document.querySelector('[data-js="rock"]');
-const papper = document.querySelector('[data-js="rock"]');
-const scissors = document.querySelector('[data-js="rock"]');
+const papper = document.querySelector('[data-js="papper"]');
+const scissors = document.querySelector('[data-js="scissors"]');
 
 // 1.3 Outputs
 
-const userChoice = document.querySelector('[data-js="user-choice"]');
-const computerChoice = document.querySelector('[data-js="computer-choice"]');
-const userPoints = document.querySelector('[data-js="user-points"]');
-const computerPoints = document.querySelector('[data-js="computer-points"]');
+const userChoiceOutput = document.querySelector('[data-js="user-choice"]');
+const computerChoiceOutput = document.querySelector('[data-js="computer-choice"]');
+const userPointsOutput = document.querySelector('[data-js="user-points"]');
+const computerPointsOutput = document.querySelector('[data-js="computer-points"]');
 
-// 2. Functions roundForm, startGame()  & restart()
+// 2. Functions roundForm
 
 let rounds = 0;
 let restRound;
 
-//  2.1 form / checked values
+//  2.1 roundform / checked values
 
 roundForm.addEventListener("change", (event) => {
   event.preventDefault();
-  //   restart;
-  //   rounds = 0;
-  //   roundWrapper.style.display = "block";
-  //   roundOutput.style.display = "none";
-
-  //   save values
   let round3checked = round3.checked;
   let round5checked = round5.checked;
   let round7checked = round7.checked;
@@ -68,10 +62,11 @@ roundForm.addEventListener("change", (event) => {
   roundsRest.innerHTML = rounds;
 });
 
+// 2.3 addEventListener in the radio inputs rock, papper and scissors to remove rounds
+
 const removeRound = () => {
   if (rounds > 0) {
     rounds--;
-    console.log(rounds);
     restRound = rounds;
     roundsRest.innerHTML = restRound;
   } else {
@@ -79,3 +74,46 @@ const removeRound = () => {
     roundsRest.innerHTML = 0;
   }
 };
+
+rock.addEventListener("click", removeRound);
+papper.addEventListener("click", removeRound);
+scissors.addEventListener("click", removeRound);
+
+let rockValue = rock.value;
+let papperValue = papper.value;
+let scissorsValue = scissors.value;
+
+let 
+
+// 3 play game  & restart()
+
+playForm.addEventListener("change", (event) => {
+
+  event.preventDefault();
+
+  // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
+
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+  let randomComputerChoice;
+  let computerRock = "rock";
+  let computerPapper = "papper";
+  let computerScissors = "scissors";
+
+  if (randomNumber === 3) {
+    randomComputerChoice = computerRock;
+  } else if (randomNumber === 1) {
+    randomComputerChoice = computerPapper;
+  } else {
+    randomComputerChoice = computerScissors;
+  }
+
+  computerChoice.innerHTML = randomComputerChoice;
+  console.log(randomComputerChoice);
+
+ //  3.2 Handle User Choice
+
+ 
+
+  // 3.2 Declare the rules
+});
