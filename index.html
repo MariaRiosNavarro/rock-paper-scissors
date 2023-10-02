@@ -9,10 +9,10 @@
   <body>
     <div class="wrapper" data-js="wrapper">
       <header>
-        <h1 data-js="title">Rock ✊ Papper ✋ Scissors ✌️</h1>
-        <article data-js="win-lost-message"></article>
+        <h1 data-js="title">Rock Papper Scissors</h1>
       </header>
       <main>
+        <section data-js="win-lost-message"></section>
         <section>
           <article data-js="round-wrapper" class="round-wrapper">
             <h2>How many rounds?</h2>
@@ -103,11 +103,24 @@
         </section>
         <section class="output-section">
           <article data-js="output-wrapper" class="output-wrapper">
-            <div data-js="user-choice"></div>
-            <div data-js="computer-choice"></div>
+            <div class="center">
+              <p>You</p>
+              <p>Program</p>
+            </div>
+            <div class="output-choices">
+              <img data-js="user-choice" />
+              <img data-js="computer-choice" />
+            </div>
+            <div class="center">
+              <p>Points:</p>
+            </div>
             <div class="points-wrapper">
-              <div data-js="user-points"></div>
-              <div data-js="computer-points"></div>
+              <div>
+                <p data-js="user-points"></p>
+              </div>
+              <div>
+                <p data-js="computer-points"></p>
+              </div>
             </div>
           </article>
           <button class="restart-btn" onclick="restart()">restart</button>
