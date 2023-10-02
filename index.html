@@ -69,7 +69,8 @@
                   type="radio"
                   name="rock"
                   id="rock"
-                  onclick="startGame()"
+                  data-js="rock"
+                  onclick="startGame(); return false"
                 />
               </label>
               <label for="papper">
@@ -78,7 +79,8 @@
                   type="radio"
                   name="papper"
                   id="papper"
-                  onclick="startGame()"
+                  data-js="papper"
+                  onclick="startGame(); return false"
                 />
               </label>
               <label for="scissors">
@@ -87,7 +89,8 @@
                   type="radio"
                   name="scissors"
                   id="scissors"
-                  onclick="startGame()"
+                  data-js="scissors"
+                  onclick="startGame(); return false"
                 />
               </label>
             </div>
@@ -97,12 +100,12 @@
           <article data-js="output-wrapper" class="output-wrapper">
             <div data-js="user-choice"></div>
             <div data-js="computer-choice"></div>
-            <div data-js="points-wrapper">
+            <div class="points-wrapper">
               <div data-js="user-points"></div>
               <div data-js="computer-points"></div>
             </div>
           </article>
-          <button class="restart-btn" onclick="removePoints()">restart</button>
+          <button class="restart-btn" onclick="restart()">restart</button>
         </section>
       </main>
       <footer>
