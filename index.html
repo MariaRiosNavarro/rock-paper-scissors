@@ -4,12 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Document</title>
+    <title>Rock Papper Scissors</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <div class="wrapper" data-js="wrapper">
+      <header>
+        <h1 data-js="title">Rock Papper Scissors</h1>
+      </header>
+      <main>
+        <section>
+          <article class="rounds-choices" data-js="rounds-choices">
+            <input
+              type="radio"
+              name="rounds"
+              id="round3"
+              data-js="round3"
+            /><label for="round3">3</label>
+            <input
+              type="radio"
+              name="rounds"
+              id="round5"
+              data-js="round5"
+            /><label for="round3">5</label>
+            <input
+              type="radio"
+              name="rounds"
+              id="round7"
+              data-js="round7"
+            /><label for="round3">7</label>
+          </article>
+
+          <article class="rounds-output" data-js="rounds-output"></article>
+        </section>
+        <section>
+          <h2>Lets play</h2>
+          <label for="rock"
+            >✊
+            <input type="radio" name="rock" id="rock" onclick="startGame()" />
+          </label>
+          <label for="papper"
+            >✋
+            <input
+              type="radio"
+              name="papper"
+              id="papper"
+              onclick="startGame()"
+            />
+          </label>
+          <label for="scissors">
+            ✌️
+            <input
+              type="radio"
+              name="scissors"
+              id="scissors"
+              onclick="startGame()"
+            />
+          </label>
+        </section>
+        <section>
+          <article data-js="output-wrapper">
+            <div data-js="user-choice"></div>
+            <div data-js="computer-choice"></div>
+            <div data-js="points-wrapper">
+              <div data-js="user-points"></div>
+              <div data-js="computer-points"></div>
+            </div>
+          </article>
+          <button onclick="removePoints()">restart</button>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
