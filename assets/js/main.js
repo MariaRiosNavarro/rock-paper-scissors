@@ -3,6 +3,7 @@
 // 1.1 Rounds
 
 const roundWrapper = document.querySelector('[data-js="round-wrapper"]');
+const roundForm = document.querySelector('[data-js="rounds-choices"]');
 const round3 = document.querySelector('[data-js="round3"]');
 const round5 = document.querySelector('[data-js="round5"]');
 const round7 = document.querySelector('[data-js="round7"]');
@@ -25,12 +26,10 @@ const computerPoints = document.querySelector('[data-js="computer-points"]');
 
 let rounds = 0;
 
-const startGame = () => {
-  // RESTART
-  roundOutut.style.display = "none";
-  roundOutut.innerHTML = "";
+//  2.1 Save Work Values
 
-  //  2.1 Save Work Values
+roundForm.addEventListener("change", (event) => {
+  event.preventDefault();
   let round3checked = round3.checked;
   let round5checked = round5.checked;
   let round7checked = round7.checked;
@@ -50,6 +49,17 @@ const startGame = () => {
         "Please choose the number of rounds you want to play";
       break;
   }
+});
 
-  console.log(rounds);
+const startGame = () => {
+  // RESTART
+  roundOutut.style.display = "none";
+  roundOutut.innerHTML = "";
+  let roundContainer;
+
+  // 2.2 After Choice display round Container counter
+
+  roundContainer = document.createElement("span");
+  roundContainer.innerHTML = rounds;
+  roundOutut.innerHTML = roundContainer;
 };
