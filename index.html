@@ -54,15 +54,19 @@
               </label>
             </form>
           </article>
-          <article
-            class="rounds-output display-none"
-            data-js="rounds-output"
-          ></article>
+          <article class="rounds-output" data-js="rounds-output">
+            <h2>Rounds:</h2>
+            <div class="roundsCounter">
+              <span data-js="rounds-total" class="rounds-total">7</span>
+              <span>/</span>
+              <span data-js="rounds-rest" class="rounds-rest">1</span>
+            </div>
+          </article>
         </section>
         <section>
           <article class="play-wrapper">
             <h2>Lets play</h2>
-            <div class="play-choices">
+            <form class="play-choices" data-js="play-choices">
               <label for="rock">
                 <img src="./assets/img/rock.png" alt="rock" />
                 <input
@@ -70,7 +74,7 @@
                   name="rock"
                   id="rock"
                   data-js="rock"
-                  onclick="startGame(); return false"
+                  onclick="removeRound(); return false"
                 />
               </label>
               <label for="papper">
@@ -80,7 +84,7 @@
                   name="papper"
                   id="papper"
                   data-js="papper"
-                  onclick="startGame(); return false"
+                  onclick="removeRound(); return false"
                 />
               </label>
               <label for="scissors">
@@ -90,10 +94,10 @@
                   name="scissors"
                   id="scissors"
                   data-js="scissors"
-                  onclick="startGame(); return false"
+                  onclick="removeRound(); return false"
                 />
               </label>
-            </div>
+            </form>
           </article>
         </section>
         <section class="output-section">

@@ -46,7 +46,21 @@ label {
 }
 
 .rounds-output {
-  height: 10rem;
+  display: none;
+  height: 11.6rem;
+}
+
+.roundsCounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.rounds-total,
+.rounds-rest {
+  color: orange;
+  margin: 1rem;
 }
 
 .rounds-choices,
@@ -116,14 +130,4 @@ label {
 footer {
   position: absolute;
   bottom: 1rem;
-}
-
-/* Visibility */
-
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
 }
