@@ -46,8 +46,8 @@ label {
 }
 
 .rounds-output {
-  display: none;
   height: 11.6rem;
+  display: none;
 }
 
 .roundsCounter {

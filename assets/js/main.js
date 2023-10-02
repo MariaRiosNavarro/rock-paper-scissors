@@ -7,7 +7,7 @@ const roundForm = document.querySelector('[data-js="rounds-choices"]');
 const round3 = document.querySelector('[data-js="round3"]');
 const round5 = document.querySelector('[data-js="round5"]');
 const round7 = document.querySelector('[data-js="round7"]');
-const roundOutut = document.querySelector('[data-js="rounds-output"]');
+const roundOutput = document.querySelector('[data-js="rounds-output"]');
 const roundsTotal = document.querySelector('[data-js="rounds-total"]');
 const roundsRest = document.querySelector('[data-js="rounds-rest"]');
 
@@ -34,11 +34,10 @@ let restRound;
 
 roundForm.addEventListener("change", (event) => {
   event.preventDefault();
-  // restart
+  //   restart;
   //   rounds = 0;
   //   roundWrapper.style.display = "block";
-  //   roundOutut.style.display = "none";
-  //   roundOutut.innerHTML = "";
+  //   roundOutput.style.display = "none";
 
   //   save values
   let round3checked = round3.checked;
@@ -56,21 +55,27 @@ roundForm.addEventListener("change", (event) => {
       rounds = 7;
       break;
     default:
-      roundOutut.style.display = "block";
-      roundOutut.innerHTML =
+      roundOutput.style.display = "block";
+      roundOutput.innerHTML =
         "Please choose the number of rounds you want to play";
       break;
   }
 
   // 2.2 After Choice display round Container counter
   roundWrapper.style.display = "none";
+  roundOutput.style.display = "block";
   roundsTotal.innerHTML = rounds;
-  console.log(rounds);
-  roundOutut.style.display = "block";
+  roundsRest.innerHTML = rounds;
 });
 
 const removeRound = () => {
-  rounds--;
-  restRound = rounds;
-  roundsRest.innerHTML = restRound;
+  if (rounds > 0) {
+    rounds--;
+    console.log(rounds);
+    restRound = rounds;
+    roundsRest.innerHTML = restRound;
+  } else {
+    rounds = 0;
+    roundsRest.innerHTML = 0;
+  }
 };
