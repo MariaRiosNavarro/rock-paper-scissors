@@ -13,56 +13,88 @@
       </header>
       <main>
         <section>
-          <article class="rounds-choices" data-js="rounds-choices">
-            <input
-              type="radio"
-              name="rounds"
-              id="round3"
-              data-js="round3"
-            /><label for="round3">3</label>
-            <input
-              type="radio"
-              name="rounds"
-              id="round5"
-              data-js="round5"
-            /><label for="round3">5</label>
-            <input
-              type="radio"
-              name="rounds"
-              id="round7"
-              data-js="round7"
-            /><label for="round3">7</label>
+          <article data-js="round-wrapper" class="round-wrapper">
+            <h2>How many rounds?</h2>
+            <div class="rounds-choices" data-js="rounds-choices">
+              <label for="round3">
+                <img
+                  src="./assets/img/icons8-eingekreiste-3-100.png"
+                  alt="round3"
+                />
+                <input
+                  type="radio"
+                  name="rounds"
+                  id="round3"
+                  data-js="round3"
+                />
+              </label>
+              <label for="round5">
+                <img
+                  src="./assets/img/icons8-eingekreiste-5-100.png"
+                  alt="round5"
+                />
+                <input
+                  type="radio"
+                  name="rounds"
+                  id="round5"
+                  data-js="round5"
+                />
+              </label>
+              <label for="round7">
+                <img
+                  src="./assets/img/icons8-eingekreiste-7-100.png"
+                  alt="round4"
+                />
+                <input
+                  type="radio"
+                  name="rounds"
+                  id="round7"
+                  data-js="round7"
+                />
+              </label>
+            </div>
           </article>
-
-          <article class="rounds-output" data-js="rounds-output"></article>
+          <article
+            class="rounds-output display-none"
+            data-js="rounds-output"
+          ></article>
         </section>
         <section>
-          <h2>Lets play</h2>
-          <label for="rock"
-            >✊
-            <input type="radio" name="rock" id="rock" onclick="startGame()" />
-          </label>
-          <label for="papper"
-            >✋
-            <input
-              type="radio"
-              name="papper"
-              id="papper"
-              onclick="startGame()"
-            />
-          </label>
-          <label for="scissors">
-            ✌️
-            <input
-              type="radio"
-              name="scissors"
-              id="scissors"
-              onclick="startGame()"
-            />
-          </label>
+          <article class="play-wrapper">
+            <h2>Lets play</h2>
+            <div class="play-choices">
+              <label for="rock">
+                <img src="./assets/img/rock.png" alt="rock" />
+                <input
+                  type="radio"
+                  name="rock"
+                  id="rock"
+                  onclick="startGame()"
+                />
+              </label>
+              <label for="papper">
+                <img src="./assets/img/papper.png" alt="papper" />
+                <input
+                  type="radio"
+                  name="papper"
+                  id="papper"
+                  onclick="startGame()"
+                />
+              </label>
+              <label for="scissors">
+                <img src="./assets/img/scissors.png" alt="scissors" />
+                <input
+                  type="radio"
+                  name="scissors"
+                  id="scissors"
+                  onclick="startGame()"
+                />
+              </label>
+            </div>
+          </article>
         </section>
-        <section>
-          <article data-js="output-wrapper">
+        <section class="output-section">
+          <article data-js="output-wrapper" class="output-wrapper">
             <div data-js="user-choice"></div>
             <div data-js="computer-choice"></div>
             <div data-js="points-wrapper">
@@ -70,10 +102,15 @@
               <div data-js="computer-points"></div>
             </div>
           </article>
-          <button onclick="removePoints()">restart</button>
+          <button class="restart-btn" onclick="removePoints()">restart</button>
         </section>
       </main>
-      <footer></footer>
+      <footer>
+        <a target="_blank" href="https://icons8.com/icon/116613/eingekreiste-3"
+          >numbers</a
+        >
+        icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+      </footer>
     </div>
     <script src="./assets/js/main.js"></script>
   </body>
