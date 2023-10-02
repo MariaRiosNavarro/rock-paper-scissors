@@ -21,14 +21,22 @@ const scissors = document.querySelector('[data-js="scissors"]');
 // 1.3 Outputs
 
 const userChoiceOutput = document.querySelector('[data-js="user-choice"]');
-const computerChoiceOutput = document.querySelector('[data-js="computer-choice"]');
+const computerChoiceOutput = document.querySelector(
+  '[data-js="computer-choice"]'
+);
 const userPointsOutput = document.querySelector('[data-js="user-points"]');
-const computerPointsOutput = document.querySelector('[data-js="computer-points"]');
+const computerPointsOutput = document.querySelector(
+  '[data-js="computer-points"]'
+);
 
-// 2. Functions roundForm
+const winnerMessage = document.querySelector('[data-js="win-lost-message"]');
+// 2. Functions roundForm & user/computer points
 
 let rounds = 0;
 let restRound;
+
+let userPoints = 0;
+let computerPoints = 0;
 
 //  2.1 roundform / checked values
 
@@ -64,7 +72,10 @@ roundForm.addEventListener("change", (event) => {
 
 // 2.3 addEventListener in the radio inputs rock, papper and scissors to remove rounds
 
-const removeRound = () => {
+const removeRoundAndAddPoints = () => {
+  userPointsOutput.innerHTML = userPoints;
+  computerPointsOutput.innerHTML = computerPoints;
+
   if (rounds > 0) {
     rounds--;
     restRound = rounds;
@@ -72,23 +83,24 @@ const removeRound = () => {
   } else {
     rounds = 0;
     roundsRest.innerHTML = 0;
+
+    if (userPoints > computerPoints) {
+      winnerMessage.innerHTML = "🏆  YOU WIN  🏆";
+    } else if (userPoints < computerPoints) {
+      winnerMessage.innerHTML = " ❌ YOU LOST ❌";
+    } else {
+      winnerMessage.innerHTML = "tied, play again";
+    }
   }
 };
 
-rock.addEventListener("click", removeRound);
-papper.addEventListener("click", removeRound);
-scissors.addEventListener("click", removeRound);
-
-let rockValue = rock.value;
-let papperValue = papper.value;
-let scissorsValue = scissors.value;
-
-let 
+rock.addEventListener("click", removeRoundAndAddPoints);
+papper.addEventListener("click", removeRoundAndAddPoints);
+scissors.addEventListener("click", removeRoundAndAddPoints);
 
 // 3 play game  & restart()
 
 playForm.addEventListener("change", (event) => {
-
   event.preventDefault();
 
   // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
@@ -108,12 +120,43 @@ playForm.addEventListener("change", (event) => {
     randomComputerChoice = computerScissors;
   }
 
-  computerChoice.innerHTML = randomComputerChoice;
-  console.log(randomComputerChoice);
+  computerChoiceOutput.innerHTML = randomComputerChoice;
 
- //  3.2 Handle User Choice
+  //  3.2 Handle User Choice
 
- 
+  let userChoice;
 
-  // 3.2 Declare the rules
+  if (rock.checked) {
+    userChoice = "rock";
+  } else if (papper.checked) {
+    userChoice = "papper";
+  } else {
+    userChoice = "scissors";
+  }
+
+  userChoiceOutput.innerHTML = userChoice;
+
+  // 3.2 Declare the rules to win
+
+  let newPointsU, newPointsC;
+
+  if (userChoice === randomComputerChoice) {
+    // no win
+    userPoints += 0;
+    computerPoints += 0;
+  } else if (
+    (userChoice === "rock" && randomComputerChoice === "scissors") ||
+    (userChoice === "scissors" && randomComputerChoice === "paper") ||
+    (userChoice === "paper" && randomComputerChoice === "rock")
+  ) {
+    // User wins
+    userPoints++;
+    console.log("user", userPoints);
+  } else {
+    // Computer wins
+    computerPoints++;
+    console.log("compu", computerPoints);
+  }
+
+  return userPoints, computerPoints;
 });
