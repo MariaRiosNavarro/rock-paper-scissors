@@ -73,24 +73,22 @@ roundForm.addEventListener("change", (event) => {
 // 2.3 addEventListener in the radio inputs rock, papper and scissors to remove rounds
 
 const removeRoundAndAddPoints = () => {
-  userPointsOutput.innerHTML = userPoints;
-  computerPointsOutput.innerHTML = computerPoints;
-
   if (rounds > 0) {
     rounds--;
     restRound = rounds;
     roundsRest.innerHTML = restRound;
-  } else {
-    rounds = 0;
-    roundsRest.innerHTML = 0;
-
-    if (userPoints > computerPoints) {
-      winnerMessage.innerHTML = "🏆  YOU WIN  🏆";
-    } else if (userPoints < computerPoints) {
-      winnerMessage.innerHTML = " ❌ YOU LOST ❌";
-    } else {
-      winnerMessage.innerHTML = "tied, play again";
+    if (rounds === 0) {
+      if (userPoints > computerPoints) {
+        winnerMessage.innerHTML = "🏆  YOU WIN  🏆";
+      } else if (userPoints < computerPoints) {
+        winnerMessage.innerHTML = " ❌ YOU LOST ❌";
+      } else {
+        winnerMessage.innerHTML = "tied, play again";
+      }
     }
+  } else {
+    roundsRest.innerHTML = 0;
+    rounds = 0;
   }
 };
 
@@ -158,5 +156,7 @@ playForm.addEventListener("change", (event) => {
     console.log("compu", computerPoints);
   }
 
-  return userPoints, computerPoints;
+  userPointsOutput.innerHTML = userPoints;
+  computerPointsOutput.innerHTML = computerPoints;
+  //   return userPoints, computerPoints;
 });
