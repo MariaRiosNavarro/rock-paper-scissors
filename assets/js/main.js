@@ -134,7 +134,7 @@ const play = () => {
 
   // 3.3.a- Alerts the user if he/she/it has not chosen the rounds
   if (roundsVal === 0) {
-    winnerMessage.innerHTML = `<h3 class ="alert">please choose how many rounds you want to play</h3>`;
+    winnerMessage.innerHTML = `<h3 class ="alert">How many rounds you want to play</h3>`;
     return;
   }
   // 3.3.b- We remove -1 only until we reach 0

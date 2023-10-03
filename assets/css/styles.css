@@ -11,10 +11,12 @@ html {
 }
 
 header {
-  margin: 1rem;
+  margin: 3rem;
   background-color: orange;
   padding: 1rem;
   border-radius: 5px;
+  position: absolute;
+  top: 0;
 }
 
 h1 {
@@ -31,12 +33,10 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
   position: relative;
 }
 
 h2 {
-  margin: 1rem 0;
   text-align: center;
   color: #131c55;
   font-size: 2rem;
@@ -56,13 +56,37 @@ label {
 }
 
 main {
-  margin: 1rem auto;
+  margin: 0 auto;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  position: relative;
+  top: 4rem;
+}
+
+/* message/alert container */
+.message {
+  height: 7rem;
+  position: absolute;
+  top: 8rem;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* alert */
+
+.alert {
+  background-color: rgb(145, 28, 15);
+  color: bisque;
+  letter-spacing: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .round-wrapper {
@@ -147,6 +171,8 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+  height: 18rem;
 }
 
 .output-choices,
@@ -190,16 +216,6 @@ main {
 footer {
   position: absolute;
   bottom: 1rem;
-}
-
-.alert {
-  background-color: red;
-  color: bisque;
-  letter-spacing: 0.5rem;
-  width: 70%;
-  margin: 1rem auto 3rem auto;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
 }
 
 /* Button */
