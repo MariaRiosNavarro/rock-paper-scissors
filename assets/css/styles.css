@@ -252,3 +252,42 @@ footer {
     background-color: orange;
   }
 }
+
+@media screen and (max-height: 678px) {
+  .wrapper {
+    justify-content: space-between;
+  }
+
+  header {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  main section {
+    height: 13rem;
+  }
+
+  .output-section {
+    height: 13rem;
+  }
+
+  .message {
+    position: relative;
+    height: 5rem;
+    width: 85%;
+    top: 0;
+  }
+
+  main {
+    position: relative;
+    top: 0;
+  }
+
+  footer {
+    position: relative;
+    display: none;
+  }
+  .restart-btn {
+    margin-bottom: 2rem;
+  }
+}
