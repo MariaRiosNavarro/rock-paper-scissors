@@ -11,8 +11,8 @@
       <header>
         <h1 data-js="title">Rock Papper Scissors</h1>
       </header>
+      <section data-js="win-lost-message" class="message"></section>
       <main>
-        <section data-js="win-lost-message"></section>
         <section>
           <article data-js="round-wrapper" class="round-wrapper">
             <h2>How many rounds?</h2>
@@ -23,6 +23,7 @@
                   alt="round3"
                 />
                 <input
+                  value="3"
                   type="radio"
                   name="rounds"
                   id="round3"
@@ -35,6 +36,7 @@
                   alt="round5"
                 />
                 <input
+                  value="5"
                   type="radio"
                   name="rounds"
                   id="round5"
@@ -47,6 +49,7 @@
                   alt="round4"
                 />
                 <input
+                  value="7"
                   type="radio"
                   name="rounds"
                   id="round7"
@@ -56,11 +59,13 @@
             </form>
           </article>
           <article class="rounds-output" data-js="rounds-output">
-            <h2>Rounds:</h2>
-            <div class="roundsCounter">
-              <span data-js="rounds-total" class="rounds-total">3</span>
-              <span>/</span>
-              <span data-js="rounds-rest" class="rounds-rest">1</span>
+            <div class="rounds-output-flex">
+              <h2>Rounds:</h2>
+              <div class="roundsCounter">
+                <span data-js="rounds-total" class="rounds-total">3</span>
+                <span>/</span>
+                <span data-js="rounds-rest" class="rounds-rest">1</span>
+              </div>
             </div>
           </article>
         </section>
@@ -104,8 +109,8 @@
         <section class="output-section">
           <article data-js="output-wrapper" class="output-wrapper">
             <div class="center">
-              <p>You</p>
-              <p>Program</p>
+              <p class="litle-title">You</p>
+              <p class="litle-title">Program</p>
             </div>
             <div class="output-choices">
               <img data-js="user-choice" />
@@ -115,17 +120,24 @@
               <p>Points:</p>
             </div>
             <div class="points-wrapper">
-              <div>
+              <div class="numbers">
                 <p data-js="user-points"></p>
               </div>
-              <div>
+              <div class="numbers">
                 <p data-js="computer-points"></p>
               </div>
             </div>
           </article>
-          <button class="restart-btn" onclick="restart()">restart</button>
         </section>
+        <button
+          data-js="restart-btn"
+          class="restart-btn restart-btn-animation"
+          onclick="restart(); return false"
+        >
+          restart
+        </button>
       </main>
+
       <footer>
         <a target="_blank" href="https://icons8.com/icon/116613/eingekreiste-3"
           >numbers</a
