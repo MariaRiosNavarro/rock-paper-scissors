@@ -38,6 +38,7 @@ const scissors = document.querySelector('[data-js="scissors"]');
 
 const restart = () => {
   location.reload();
+  restartBtn.classList.remove("restart-btn-shadow");
   outputWrapper.style.visibility = "hidden";
 };
 
@@ -160,6 +161,7 @@ const play = () => {
     } else {
       winnerMessage.innerHTML = `<h3 class="tied-style"> TIED </h3>`;
     }
+    restartBtn.classList.add("restart-btn-shadow");
   }
 };
 
