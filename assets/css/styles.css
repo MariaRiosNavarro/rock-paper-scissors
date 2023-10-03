@@ -163,9 +163,9 @@ main {
 
 /* Outputs */
 
-.output-wrapper {
+/* .output-wrapper {
   height: auto;
-}
+} */
 
 .output-section {
   display: flex;
@@ -196,7 +196,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
+  margin: 1rem;
 }
 
 .center p {
@@ -211,6 +212,16 @@ main {
   color: orange;
   text-align: center;
   width: 50%;
+}
+
+.numbers:nth-of-type(1),
+.litle-title:nth-of-type(1) {
+  margin-right: 3rem;
+}
+
+.numbers:nth-of-type(2),
+.litle-title:nth-of-type(2) {
+  margin-left: 3rem;
 }
 
 footer {
@@ -255,7 +266,8 @@ footer {
 
 @media screen and (max-height: 678px) {
   .wrapper {
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1rem;
   }
 
   header {
@@ -268,7 +280,7 @@ footer {
   }
 
   .output-section {
-    height: 13rem;
+    height: 19rem;
   }
 
   .message {
