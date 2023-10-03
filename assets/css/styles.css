@@ -96,7 +96,7 @@ main {
   );
   background-size: 200% 100%;
   animation: gradient-slide-lost 3s linear infinite;
-  color: var(--primary-color);
+  color: var(--secundary-color);
   border-radius: 8px;
   padding: 1.7rem;
 }
@@ -110,7 +110,7 @@ main {
   );
   background-size: 200% 100%;
   animation: gradient-slide-win 3s linear infinite;
-  color: var(--primary-color);
+  color: var(--secundary-color);
   border-radius: 8px;
   padding: 1.7rem;
 }
@@ -423,5 +423,11 @@ footer {
   }
   .restart-btn {
     margin-bottom: 8rem;
+  }
+}
+
+@media screen and (max-height: 678px) and (max-width: 375px) {
+  .wrapper {
+    height: 100vh;
   }
 }
