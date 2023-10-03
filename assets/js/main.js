@@ -2,18 +2,20 @@
 
 // 1.1 Rounds
 
-const roundWrapper = document.querySelector('[data-js="round-wrapper"]');
 const roundForm = document.querySelector('[data-js="rounds-choices"]');
-const round3 = document.querySelector('[data-js="round3"]');
-const round5 = document.querySelector('[data-js="round5"]');
-const round7 = document.querySelector('[data-js="round7"]');
+const roundWrapper = document.querySelector('[data-js="round-wrapper"]');
+const roundsRadio = document.querySelectorAll('input[name="rounds"]');
 const roundOutput = document.querySelector('[data-js="rounds-output"]');
 const roundsTotal = document.querySelector('[data-js="rounds-total"]');
 const roundsRest = document.querySelector('[data-js="rounds-rest"]');
+const round3 = document.querySelector('[data-js="round3"]');
+const round5 = document.querySelector('[data-js="round5"]');
+const round7 = document.querySelector('[data-js="round7"]');
 
 // 1.2 Play Options
 
 const playForm = document.querySelector('[data-js="play-choices"]');
+const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
 const papper = document.querySelector('[data-js="papper"]');
 const scissors = document.querySelector('[data-js="scissors"]');
@@ -47,111 +49,84 @@ let rounds = 0;
 let restRound;
 let userPoints = 0;
 let computerPoints = 0;
+let roundsVal = 0;
 
-//  2.1 roundform / checked values
+//  2.1 Rounds
 
-roundForm.addEventListener("change", (event) => {
-  event.preventDefault();
-  let round3checked = round3.checked;
-  let round5checked = round5.checked;
-  let round7checked = round7.checked;
-
-  switch (true) {
-    case round3checked:
-      rounds = 3;
-      break;
-    case round5checked:
-      rounds = 5;
-      break;
-    case round7checked:
-      rounds = 7;
-      break;
-    default:
-      roundOutput.style.display = "block";
-      roundOutput.innerHTML =
-        "Please choose the number of rounds you want to play";
-      break;
-  }
-
-  // 2.2 After Choice display round Container counter
-  roundWrapper.style.display = "none";
-  roundOutput.style.display = "block";
-  roundsTotal.innerHTML = rounds;
-  roundsRest.innerHTML = rounds;
-});
-
-// 2.3 addEventListener in the radio inputs rock, papper and scissors to remove rounds
-
-const removeRoundAndDeclareWinner = () => {
-  if (rounds > 0) {
-    rounds--;
-    restRound = rounds;
-    roundsRest.innerHTML = restRound;
-    if (rounds === 0) {
-      if (userPoints > computerPoints) {
-        winnerMessage.innerHTML = `<h3>🏆  YOU WIN  🏆</h3>`;
-      } else if (userPoints < computerPoints) {
-        winnerMessage.innerHTML = `<h3>❌  YOU LOST  ❌</h3>`;
-      } else {
-        winnerMessage.innerHTML = `<h3> TIED </h3><br><p>play again</p>`;
-      }
+const outputRoundValue = () => {
+  for (let i = 0; i < roundsRadio.length; i++) {
+    if (roundsRadio[i].checked == true) {
+      roundsVal = roundsRadio[i].value;
     }
-  } else {
-    roundsRest.innerHTML = 0;
-    rounds = 0;
+    // 2.2 After Choice display round Container counter
+    roundWrapper.style.display = "none";
+    roundOutput.style.display = "block";
+    roundsTotal.innerHTML = roundsVal;
+    roundsRest.innerHTML = roundsVal;
+    rounds = roundsVal;
   }
 };
 
-rock.addEventListener("click", removeRoundAndDeclareWinner);
-papper.addEventListener("click", removeRoundAndDeclareWinner);
-scissors.addEventListener("click", removeRoundAndDeclareWinner);
+round3.addEventListener("click", outputRoundValue);
+round5.addEventListener("click", outputRoundValue);
+round7.addEventListener("click", outputRoundValue);
 
-// 3 play game  & restart()
+// 3 play game
 
-playForm.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
-
-  const randomNumber = Math.floor(Math.random() * 3) + 1;
-
-  let randomComputerChoice;
-  let computerRock = "rock";
-  let computerPapper = "papper";
-  let computerScissors = "scissors";
-
-  if (randomNumber === 3) {
-    randomComputerChoice = computerRock;
-    computerChoiceOutput.src = "assets/img/rockFull.png";
-  } else if (randomNumber === 2) {
-    randomComputerChoice = computerPapper;
-    computerChoiceOutput.src = "assets/img/papperFull.png";
-  } else {
-    randomComputerChoice = computerScissors;
-    computerChoiceOutput.src = "assets/img/scissorsFull.png";
+const play = () => {
+  if (roundsVal === 0) {
+    winnerMessage.innerHTML = `<h3 class ="alert">please choose how many rounds you want to play</h3>`;
+    return;
   }
 
-  //   computerChoiceOutput.innerHTML = randomComputerChoice;
+  rounds--;
+  console.log("r", rounds, typeof rounds);
+  console.log("v", roundsVal, typeof roundsVal);
+  roundsRest.innerHTML = rounds;
+
+  if (rounds === 0) {
+    if (userPoints > computerPoints) {
+      winnerMessage.innerHTML = `<h3>🏆  YOU WIN  🏆</h3>`;
+    } else if (userPoints < computerPoints) {
+      winnerMessage.innerHTML = `<h3>❌  YOU LOST  ❌</h3>`;
+    } else {
+      winnerMessage.innerHTML = `<h3> TIED </h3>`;
+    }
+  }
+
+  // // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
+  outputWrapper.style.visibility = "visible";
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  let randomComputerChoice;
+  if (randomNumber === 3) {
+    randomComputerChoice = "rock";
+    computerChoiceOutput.src = "assets/img/rockFull.png";
+  } else if (randomNumber === 2) {
+    randomComputerChoice = "papper";
+    computerChoiceOutput.src = "assets/img/papperFull.png";
+  } else {
+    randomComputerChoice = "scissors";
+    computerChoiceOutput.src = "assets/img/scissorsFull.png";
+  }
 
   //  3.2 Handle User Choice
 
   let userChoice;
 
-  if (rock.checked) {
-    userChoice = "rock";
-    userChoiceOutput.src = "assets/img/rockFull.png";
-  } else if (papper.checked) {
-    userChoice = "papper";
-    userChoiceOutput.src = "assets/img/papperFull.png";
-  } else {
-    userChoice = "scissors";
-    userChoiceOutput.src = "assets/img/scissorsFull.png";
+  for (let i = 0; i < playRadio.length; i++) {
+    if (playRadio[i].checked == true) {
+      userChoice = playRadio[i].value;
+      if (userChoice === "rock") {
+        userChoiceOutput.src = "assets/img/rockFull.png";
+      } else if (userChoice === "papper") {
+        userChoiceOutput.src = "assets/img/papperFull.png";
+      } else {
+        userChoiceOutput.src = "assets/img/scissorsFull.png";
+      }
+    }
   }
 
-  outputWrapper.style.visibility = "visible";
-
   // 3.2 Declare the rules to win
-
   if (userChoice === randomComputerChoice) {
     // no win
     userPoints += 0;
@@ -167,7 +142,42 @@ playForm.addEventListener("click", (event) => {
     // Computer wins
     computerPoints++;
   }
-
   userPointsOutput.innerHTML = userPoints;
   computerPointsOutput.innerHTML = computerPoints;
-});
+};
+
+rock.addEventListener("click", play);
+papper.addEventListener("click", play);
+scissors.addEventListener("click", play);
+
+// 2.3 addEventListener in the radio inputs rock, papper and scissors to remove rounds
+
+// const removeRoundAndDeclareWinner = () => {
+//   if (rounds > 0) {
+//     rounds--;
+//     restRound = rounds;
+//     roundsRest.innerHTML = restRound;
+//     if (rounds === 0) {
+//       if (userPoints > computerPoints) {
+//         winnerMessage.innerHTML = `<h3>🏆  YOU WIN  🏆</h3>`;
+//       } else if (userPoints < computerPoints) {
+//         winnerMessage.innerHTML = `<h3>❌  YOU LOST  ❌</h3>`;
+//       } else {
+//         winnerMessage.innerHTML = `<h3> TIED </h3><br><p>play again</p>`;
+//       }
+//     }
+//   } else {
+//     roundsRest.innerHTML = 0;
+//     rounds = 0;
+//   }
+// };
+
+// console.log(rounds);
+// rounds--;
+// restRound = rounds;
+// console.log(restRound);
+// roundsRest.innerHTML = restRound;
+// rock.addEventListener("click", play);
+// papper.addEventListener("click", play);
+// scissors.addEventListener("click", play);
+// outputWrapper.style.visibility = "visible";
