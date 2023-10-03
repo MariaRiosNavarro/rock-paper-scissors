@@ -134,7 +134,7 @@ const play = () => {
 
   // 3.3.a- Alerts the user if he/she/it has not chosen the rounds
   if (roundsVal === 0) {
-    winnerMessage.innerHTML = `<h3 class ="alert">How many rounds, do you want to play?</h3>`;
+    winnerMessage.innerHTML = `<h3 class ="alert">Please choose how many rounds</h3>`;
     outputWrapper.style.visibility = "hidden";
     return;
   }
@@ -154,11 +154,11 @@ const play = () => {
     papper.removeEventListener("click", play);
     scissors.removeEventListener("click", play);
     if (userPoints > computerPoints) {
-      winnerMessage.innerHTML = `<h3>🏆  YOU WIN  🏆</h3>`;
+      winnerMessage.innerHTML = `<h3 class="win-style">🏆  YOU WIN  🏆</h3>`;
     } else if (userPoints < computerPoints) {
-      winnerMessage.innerHTML = `<h3>❌  YOU LOST  ❌</h3>`;
+      winnerMessage.innerHTML = `<h3 class="lost-style">❌  YOU LOST  ❌</h3>`;
     } else {
-      winnerMessage.innerHTML = `<h3> TIED </h3>`;
+      winnerMessage.innerHTML = `<h3 class="tied-style"> TIED </h3>`;
     }
   }
 };
