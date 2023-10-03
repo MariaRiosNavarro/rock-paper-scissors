@@ -88,22 +88,28 @@ main {
 }
 
 .lost-style {
-  background-image: linear-gradient(
-    to right,
-    #ff8177 0%,
-    #ff867a 0%,
-    #ff8c7f 21%,
-    #f99185 52%,
-    #cf556c 78%,
-    #b12a5b 100%
+  background: linear-gradient(
+    90deg,
+    rgba(220, 47, 2, 0.5) 0%,
+    rgba(19, 28, 85, 0.5) 50%,
+    rgba(220, 47, 2, 0.5) 100%
   );
+  background-size: 200% 100%;
+  animation: gradient-slide-lost 3s linear infinite;
   color: var(--primary-color);
   border-radius: 8px;
   padding: 1.7rem;
 }
 
 .win-style {
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  background: linear-gradient(
+    90deg,
+    #0096c7 0%,
+    rgba(19, 28, 85, 0.5) 50%,
+    #0096c7 100%
+  );
+  background-size: 200% 100%;
+  animation: gradient-slide-win 3s linear infinite;
   color: var(--primary-color);
   border-radius: 8px;
   padding: 1.7rem;
@@ -212,15 +218,11 @@ main {
 }
 
 .rounds-choices label p:hover {
-  background-color: var(--text-color);
+  background-color: var(--secundary-color);
   color: var(--primary-color);
 }
 
 /* Outputs */
-
-/* .output-wrapper {
-  height: auto;
-} */
 
 .output-section {
   display: flex;
@@ -295,6 +297,10 @@ main {
   color: var(--text-color);
   text-align: center;
   width: 100%;
+  filter: drop-shadow(1px 1px 7px rgba(250, 138, 2, 0.626))
+    drop-shadow(-1px -1px 7px rgba(250, 138, 2, 0.626))
+    drop-shadow(1px -1px 7px rgba(250, 138, 2, 0.626))
+    drop-shadow(-1px 1px 7px rgba(250, 138, 2, 0.626));
 }
 
 footer {
@@ -347,6 +353,26 @@ footer {
     background-position: -200% 0;
   }
 }
+
+@keyframes gradient-slide-lost {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes gradient-slide-win {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* MEDIA Q */
 
 @media screen and (max-height: 678px) {
   .wrapper {
