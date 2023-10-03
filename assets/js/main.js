@@ -1,3 +1,5 @@
+// works but we can not use change to change the options- create new branch to put everything together
+
 // 1. Save variables
 
 // 1.1 Rounds
@@ -108,7 +110,7 @@ scissors.addEventListener("click", removeRoundAndDeclareWinner);
 
 // 3 play game  & restart()
 
-playForm.addEventListener("click", (event) => {
+playForm.addEventListener("change", (event) => {
   event.preventDefault();
 
   // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
@@ -140,13 +142,18 @@ playForm.addEventListener("click", (event) => {
   if (rock.checked) {
     userChoice = "rock";
     userChoiceOutput.src = "assets/img/rockFull.png";
+    console.log("r");
   } else if (papper.checked) {
     userChoice = "papper";
     userChoiceOutput.src = "assets/img/papperFull.png";
+    console.log("p");
   } else {
     userChoice = "scissors";
     userChoiceOutput.src = "assets/img/scissorsFull.png";
+    console.log("s");
   }
+
+  console.log(userChoice);
 
   outputWrapper.style.visibility = "visible";
 
@@ -156,14 +163,19 @@ playForm.addEventListener("click", (event) => {
     // no win
     userPoints += 0;
     computerPoints += 0;
+    console.log("same");
   } else if (
     (userChoice === "rock" && randomComputerChoice === "scissors") ||
     (userChoice === "scissors" && randomComputerChoice === "paper") ||
     (userChoice === "paper" && randomComputerChoice === "rock")
   ) {
+    console.log("user");
+
     // User wins
     userPoints++;
   } else {
+    console.log("com");
+
     // Computer wins
     computerPoints++;
   }
