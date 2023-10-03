@@ -59,11 +59,13 @@
             </form>
           </article>
           <article class="rounds-output" data-js="rounds-output">
-            <h2>Rounds:</h2>
-            <div class="roundsCounter">
-              <span data-js="rounds-total" class="rounds-total">3</span>
-              <span>/</span>
-              <span data-js="rounds-rest" class="rounds-rest">1</span>
+            <div class="rounds-output-flex">
+              <h2>Rounds:</h2>
+              <div class="roundsCounter">
+                <span data-js="rounds-total" class="rounds-total">3</span>
+                <span>/</span>
+                <span data-js="rounds-rest" class="rounds-rest">1</span>
+              </div>
             </div>
           </article>
         </section>
@@ -126,9 +128,16 @@
               </div>
             </div>
           </article>
-          <button class="restart-btn" onclick="restart()">restart</button>
         </section>
+        <button
+          data-js="restart-btn"
+          class="restart-btn restart-btn-animation"
+          onclick="restart(); return false"
+        >
+          restart
+        </button>
       </main>
+
       <footer>
         <a target="_blank" href="https://icons8.com/icon/116613/eingekreiste-3"
           >numbers</a

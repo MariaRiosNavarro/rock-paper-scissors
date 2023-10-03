@@ -55,9 +55,37 @@ label {
   padding: 0;
 }
 
-.rounds-output {
+main {
+  margin: 1rem auto;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.round-wrapper {
+  height: 12rem;
+  margin: 0;
+}
+
+.rounds-output {
   display: none;
+  height: 12rem;
+  margin: 0;
+}
+
+.rounds-output-flex h2 {
+  margin: 0;
+}
+
+.rounds-output-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
 }
 
 .roundsCounter {
@@ -109,23 +137,10 @@ label {
   visibility: hidden;
 }
 
+/* Outputs */
+
 .output-wrapper {
   height: auto;
-}
-
-.restart-btn {
-  margin: 0 auto;
-  width: 50%;
-  border-radius: 5px;
-  border: 1px solid orange;
-  padding: 1rem;
-  background-color: transparent;
-  color: orange;
-}
-
-.restart-btn:hover {
-  background-color: orange;
-  color: hsl(199, 98%, 35%);
 }
 
 .output-section {
@@ -133,6 +148,7 @@ label {
   align-items: center;
   flex-direction: column;
 }
+
 .output-choices,
 .points-wrapper {
   display: flex;
@@ -148,10 +164,6 @@ label {
   border-radius: 50%;
   padding: 0;
   margin: 0;
-}
-
-.output-title {
-  font-size: 2rem;
 }
 
 .center {
@@ -178,4 +190,49 @@ label {
 footer {
   position: absolute;
   bottom: 1rem;
+}
+
+.alert {
+  background-color: red;
+  color: bisque;
+  letter-spacing: 0.5rem;
+  width: 70%;
+  margin: 1rem auto 3rem auto;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Button */
+
+.restart-btn {
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid orange;
+  padding: 1rem;
+  background-color: transparent;
+  color: orange;
+}
+
+.restart-btn:hover {
+  background-color: orange;
+  color: hsl(199, 98%, 35%);
+}
+
+.restart-btn-animation {
+  animation: color 0.5s ease-in-out 0 infinite;
+  transition: all ease-in-out;
+}
+
+@keyframes color {
+  0% {
+    background-color: orange;
+  }
+
+  50% {
+    background-color: #131c55;
+  }
+  100% {
+    background-color: orange;
+  }
 }
