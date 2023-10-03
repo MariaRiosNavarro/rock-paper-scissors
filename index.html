@@ -71,7 +71,6 @@
         </section>
         <section>
           <article class="play-wrapper">
-            <h2>Lets play</h2>
             <form class="play-choices" data-js="play-choices">
               <label for="rock">
                 <img src="./assets/img/rock.png" alt="rock" />
@@ -108,23 +107,25 @@
         </section>
         <section class="output-section">
           <article data-js="output-wrapper" class="output-wrapper">
-            <div class="center">
-              <p class="litle-title">You</p>
-              <p class="litle-title">Program</p>
-            </div>
             <div class="output-choices">
-              <img data-js="user-choice" />
-              <img data-js="computer-choice" />
-            </div>
-            <div class="center">
-              <p>Points:</p>
-            </div>
-            <div class="points-wrapper">
-              <div class="numbers">
-                <p data-js="user-points"></p>
+              <div class="center">
+                <p class="sm-title">You</p>
+                <img data-js="user-choice" />
               </div>
-              <div class="numbers">
-                <p data-js="computer-points"></p>
+              <div class="points-wrapper">
+                <div class="points">
+                  <span data-js="user-points"></span>
+                </div>
+                <div class="points-text">
+                  <p>Points</p>
+                </div>
+                <div class="points">
+                  <span data-js="computer-points"></span>
+                </div>
+              </div>
+              <div class="center">
+                <p class="sm-title">Program</p>
+                <img data-js="computer-choice" />
               </div>
             </div>
           </article>

@@ -8,6 +8,7 @@
 
 html {
   font-size: 62.5%;
+  font-family: Helvetica, Arial, Impact;
 }
 
 header {
@@ -90,13 +91,13 @@ main {
 }
 
 .round-wrapper {
-  height: 12rem;
+  height: 10rem;
   margin: 0;
 }
 
 .rounds-output {
   display: none;
-  height: 12rem;
+  height: 10rem;
   margin: 0;
 }
 
@@ -130,7 +131,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .rounds-choices img,
@@ -175,13 +176,17 @@ main {
   height: 18rem;
 }
 
-.output-choices,
-.points-wrapper {
+.output-choices {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  gap: 7rem;
+  position: relative;
 }
+
+/* .sm-tittle {
+  font-size: 1.5rem;
+  align-self: flex-start;
+} */
 
 .output-choices img {
   width: 6rem;
@@ -196,32 +201,52 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  margin: 0.5rem;
+  flex-direction: column;
+  text-align: center;
+  width: 30%;
+  position: relative;
 }
 
 .center p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #131c55;
-  text-align: center;
-  width: 50%;
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.points-wrapper p {
+.points-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.points-wrapper .points {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.points-text {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #131c55;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.points-wrapper span {
   font-size: 2rem;
   color: orange;
   text-align: center;
-  width: 50%;
-}
-
-.numbers:nth-of-type(1),
-.litle-title:nth-of-type(1) {
-  margin-right: 3rem;
-}
-
-.numbers:nth-of-type(2),
-.litle-title:nth-of-type(2) {
-  margin-left: 3rem;
+  width: 100%;
 }
 
 footer {
@@ -274,6 +299,7 @@ footer {
   header {
     position: relative;
     margin-bottom: 0;
+    margin-top: 1rem;
   }
 
   main section {
@@ -281,7 +307,7 @@ footer {
   }
 
   .output-section {
-    height: 19rem;
+    height: 15rem;
   }
 
   .message {
@@ -289,6 +315,15 @@ footer {
     height: 5rem;
     width: 85%;
     top: 0;
+  }
+
+  .round-wrapper,
+  .rounds-output {
+    height: 10rem;
+  }
+
+  .play-wrapper {
+    margin-top: 0.5rem;
   }
 
   main {
