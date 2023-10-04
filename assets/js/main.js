@@ -120,18 +120,18 @@ const play = () => {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
         userChoiceOutput.src = "./assets/img/rockFull.png";
-        scissorsImg.src = "./assets/img/scissors.gif";
-        papperImg.src = "./assets/img/papper.gif";
+        scissorsImg.src = "./assets/gif/scissors.gif";
+        papperImg.src = "./assets/gif/papper.gif";
         rockImg.src = "./assets/img/rockFull.png";
       } else if (userChoice === "papper") {
         userChoiceOutput.src = "./assets/img/papperFull.png";
-        scissorsImg.src = "./assets/img/scissors.gif";
-        rockImg.src = "./assets/img/rock.gif";
+        scissorsImg.src = "./assets/gif/scissors.gif";
+        rockImg.src = "./assets/gif/rock.gif";
         papperImg.src = "./assets/img/papperFull.png";
       } else {
         userChoiceOutput.src = "./assets/img/scissorsFull.png";
-        rockImg.src = "./assets/img/rock.gif";
-        papperImg.src = "./assets/img/papper.gif";
+        rockImg.src = "./assets/gif/rock.gif";
+        papperImg.src = "./assets/gif/papper.gif";
         scissorsImg.src = "./assets/img/scissorsFull.png";
       }
     }
@@ -196,9 +196,9 @@ const play = () => {
       winnerMessage.innerHTML = drawMessage;
     }
     restartBtn.classList.add("restart-btn-shadow");
-    rockImg.src = "./assets/img/rock.gif";
-    papperImg.src = "./assets/img/papper.gif";
-    scissorsImg.src = "./assets/img/scissors.gif";
+    rockImg.src = "./assets/gif/rock.gif";
+    papperImg.src = "./assets/gif/papper.gif";
+    scissorsImg.src = "./assets/gif/scissors.gif";
   }
 };
 
