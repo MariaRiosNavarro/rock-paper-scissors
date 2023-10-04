@@ -6,10 +6,10 @@
 
 <div>
 
-<img src="./assets/img/readmeA.png" width="300px">
-<img src="./assets/img/readmeB.png" width="300px">
-<img src="./assets/img/readmeC.png" width="300px">
-<img src="./assets/img/readmeD.png" width="300px">
+<img src="./assets/imgs/readmeA.png" width="300px">
+<img src="./assets/imgs/readmeB.png" width="300px">
+<img src="./assets/imgs/readmeC.png" width="300px">
+<img src="./assets/imgs/readmeD.png" width="300px">
 
 </div>
 
