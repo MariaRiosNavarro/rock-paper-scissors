@@ -128,6 +128,20 @@ const play = () => {
     // Computer wins
     computerPoints++;
   }
+
+  // Add style to resalt the winner
+
+  if (userPoints > computerPoints) {
+    userPointsOutput.classList.add("more-points");
+    computerPointsOutput.classList.remove("more-points");
+  } else if (computerPoints > userPoints) {
+    computerPointsOutput.classList.add("more-points");
+    userPointsOutput.classList.remove("more-points");
+  } else {
+    userPointsOutput.classList.remove("more-points");
+    computerPointsOutput.classList.remove("more-points");
+  }
+
   userPointsOutput.innerHTML = userPoints;
   computerPointsOutput.innerHTML = computerPoints;
 
