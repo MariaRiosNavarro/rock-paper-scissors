@@ -33,6 +33,10 @@ h1 {
   font-size: 2rem;
 }
 
+body {
+  max-height: 100vh;
+}
+
 .wrapper {
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -95,10 +99,14 @@ main {
     rgba(220, 47, 2, 0.5) 100%
   );
   background-size: 200% 100%;
-  animation: gradient-slide-lost 3s linear infinite;
+  animation: gradient-slide-lost 15s linear infinite;
   color: var(--secundary-color);
   border-radius: 8px;
   padding: 1.7rem;
+}
+
+.spinner img {
+  height: 20rem;
 }
 
 .win-style {
@@ -109,7 +117,7 @@ main {
     #0096c7 100%
   );
   background-size: 200% 100%;
-  animation: gradient-slide-win 3s linear infinite;
+  animation: gradient-slide-win 15s linear infinite;
   color: var(--secundary-color);
   border-radius: 8px;
   padding: 1.7rem;
@@ -124,14 +132,14 @@ main {
 
 /* alert */
 
-.alert {
+/* .alert {
   background-color: rgb(145, 28, 15);
   color: var(--text-color);
   letter-spacing: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-size: 1.5rem;
-}
+} */
 
 .round-wrapper {
   height: 10rem;
@@ -207,13 +215,20 @@ main {
   visibility: hidden;
 }
 
+.rounds-choices label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
 .rounds-choices label p {
-  font-size: 3rem;
-  padding: 1rem;
+  font-size: 2.3rem;
+  padding: 0.5rem;
   border: 2px solid var(--text-color);
   border-radius: 50%;
-  height: 6rem;
-  width: 6rem;
+  height: 4rem;
+  width: 4rem;
   text-align: center;
 }
 
@@ -329,7 +344,7 @@ footer {
     rgba(255, 165, 0, 0.5) 100%
   );
   background-size: 200% 100%;
-  animation: gradient-slide 3s linear infinite;
+  animation: gradient-slide 15s ease-in-out infinite;
 }
 
 .restart-btn-shadow {
@@ -381,7 +396,6 @@ footer {
   .wrapper {
     justify-content: flex-start;
     gap: 0;
-    height: 100%;
   }
 
   header {
@@ -390,13 +404,15 @@ footer {
 
   main {
     margin-top: 1rem;
+    position: relative;
+    top: 0;
   }
   main section {
     height: 10rem;
   }
 
   .output-section {
-    height: 15rem;
+    height: 13rem;
   }
 
   .message {
@@ -415,22 +431,11 @@ footer {
     margin-top: 0.5rem;
   }
 
-  main {
-    position: relative;
-    top: 0;
-  }
-
   footer {
     position: relative;
     display: none;
   }
-  .restart-btn {
+  /* .restart-btn {
     margin-bottom: 8rem;
-  }
-}
-
-@media screen and (max-height: 678px) and (max-width: 375px) {
-  .wrapper {
-    height: 100vh;
-  }
+  } */
 }

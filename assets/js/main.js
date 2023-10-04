@@ -1,5 +1,5 @@
 // 1. Save variables
-// 1. Outputs
+// 1.1 Outputs
 
 const outputWrapper = document.querySelector('[data-js="output-wrapper"]');
 outputWrapper.style.visibility = "hidden";
@@ -13,6 +13,11 @@ const computerPointsOutput = document.querySelector(
 );
 const winnerMessage = document.querySelector('[data-js="win-lost-message"]');
 const restartBtn = document.querySelector('[data-js="restart-btn"]');
+const playWrapper = document.querySelector('[data-js="play-wrapper"]');
+const spiner = document.querySelector('[data-js="spinner"]');
+
+playWrapper.style.display = "none";
+spiner.style.display = "block";
 
 // 1.2 Rounds
 
@@ -62,6 +67,9 @@ const outputRoundValue = () => {
     // 2.2 After Choice display round Container counter
     roundWrapper.style.display = "none";
     roundOutput.style.display = "block";
+    spiner.style.display = "none";
+    playWrapper.style.display = "block";
+
     roundsTotal.innerHTML = roundsVal;
     roundsRest.innerHTML = roundsVal;
     rounds = roundsVal;
@@ -85,13 +93,13 @@ const play = () => {
   let randomComputerChoice;
   if (randomNumber === 3) {
     randomComputerChoice = "rock";
-    computerChoiceOutput.src = "assets/img/rockFull.png";
+    computerChoiceOutput.src = "assets/img/rockFullC.png";
   } else if (randomNumber === 2) {
     randomComputerChoice = "papper";
-    computerChoiceOutput.src = "assets/img/papperFull.png";
+    computerChoiceOutput.src = "assets/img/papperFullC.png";
   } else {
     randomComputerChoice = "scissors";
-    computerChoiceOutput.src = "assets/img/scissorsFull.png";
+    computerChoiceOutput.src = "assets/img/scissorsFullC.png";
   }
 
   //  3.2 Handle User Choice
@@ -148,11 +156,11 @@ const play = () => {
   // 3.3 Rounds Handling after click
 
   // 3.3.a- Alerts the user if he/she/it has not chosen the rounds
-  if (roundsVal === 0) {
-    winnerMessage.innerHTML = `<h3 class ="alert">Please choose how many rounds</h3>`;
-    outputWrapper.style.visibility = "hidden";
-    return;
-  }
+  // if (roundsVal === 0) {
+  //   winnerMessage.innerHTML = `<h3 class ="alert">Please choose how many rounds</h3>`;
+  //   outputWrapper.style.visibility = "hidden";
+  //   return;
+  // }
   // 3.3.b- We remove -1 only until we reach 0
   if (rounds > 0) {
     rounds--;
