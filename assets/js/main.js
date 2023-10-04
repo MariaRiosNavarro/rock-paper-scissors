@@ -36,8 +36,11 @@ const round7 = document.querySelector('[data-js="round7"]');
 const playForm = document.querySelector('[data-js="play-choices"]');
 const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
+const rockImg = document.querySelector('[data-js="rock-img"]');
 const papper = document.querySelector('[data-js="papper"]');
+const papperImg = document.querySelector('[data-js="papper-img"]');
 const scissors = document.querySelector('[data-js="scissors"]');
+const scissorsImg = document.querySelector('[data-js="scissors-img"]');
 
 // 1.4 restart
 
@@ -111,10 +114,19 @@ const play = () => {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
         userChoiceOutput.src = "assets/img/rockFull.png";
+        scissorsImg.src = "assets/img/scissors.gif";
+        papperImg.src = "assets/img/papper.gif";
+        rockImg.src = "assets/img/rockFull.png";
       } else if (userChoice === "papper") {
         userChoiceOutput.src = "assets/img/papperFull.png";
+        scissorsImg.src = "assets/img/scissors.gif";
+        rockImg.src = "assets/img/rock.gif";
+        papperImg.src = "assets/img/papperFull.png";
       } else {
         userChoiceOutput.src = "assets/img/scissorsFull.png";
+        rockImg.src = "assets/img/rock.gif";
+        papperImg.src = "assets/img/papper.gif";
+        scissorsImg.src = "assets/img/scissorsFull.png";
       }
     }
   }
@@ -155,12 +167,6 @@ const play = () => {
 
   // 3.3 Rounds Handling after click
 
-  // 3.3.a- Alerts the user if he/she/it has not chosen the rounds
-  // if (roundsVal === 0) {
-  //   winnerMessage.innerHTML = `<h3 class ="alert">Please choose how many rounds</h3>`;
-  //   outputWrapper.style.visibility = "hidden";
-  //   return;
-  // }
   // 3.3.b- We remove -1 only until we reach 0
   if (rounds > 0) {
     rounds--;

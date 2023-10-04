@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Roboto-Bold;
+  src: url("/assets/fonts/Roboto/Roboto-Bold.ttf");
+}
+
 *,
 *::before,
 *::after {
@@ -15,7 +20,7 @@
 
 html {
   font-size: 62.5%;
-  font-family: Helvetica, Arial, Impact;
+  font-family: Roboto-Bold, Arial, Helvetica, sans-serif;
   color: var(--text-color);
 }
 
@@ -28,9 +33,13 @@ header {
   letter-spacing: 0.5rem;
 }
 
+header img {
+  height: 7rem;
+}
+
 h1 {
-  color: var(--secundary-color);
-  font-size: 2rem;
+  position: absolute;
+  visibility: hidden;
 }
 
 body {
@@ -107,6 +116,11 @@ main {
 
 .spinner img {
   height: 20rem;
+  border: 3px solid red;
+}
+
+.spinner {
+  border: 1px solid green;
 }
 
 .win-style {
@@ -130,20 +144,10 @@ main {
   padding: 1.7rem;
 }
 
-/* alert */
-
-/* .alert {
-  background-color: rgb(145, 28, 15);
-  color: var(--text-color);
-  letter-spacing: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
-} */
-
 .round-wrapper {
   height: 10rem;
   margin: 0;
+  border: 3px solid violet;
 }
 
 .rounds-output {
@@ -317,6 +321,11 @@ footer {
   bottom: 1rem;
 }
 
+footer a {
+  color: var(--secundary-color);
+  text-decoration: none;
+}
+
 /* Button */
 
 .restart-btn {
@@ -430,12 +439,4 @@ footer {
   .play-wrapper {
     margin-top: 0.5rem;
   }
-
-  footer {
-    position: relative;
-    display: none;
-  }
-  /* .restart-btn {
-    margin-bottom: 8rem;
-  } */
 }
