@@ -16,8 +16,11 @@ const restartBtn = document.querySelector('[data-js="restart-btn"]');
 const playWrapper = document.querySelector('[data-js="play-wrapper"]');
 const spiner = document.querySelector('[data-js="spinner"]');
 
+const lostMessage = document.querySelector('[data-js="lost-message"]');
+
 playWrapper.style.display = "none";
 spiner.style.display = "block";
+lostMessage.style.display = "none";
 
 // 1.2 Rounds
 
@@ -60,8 +63,6 @@ let roundsVal = 0;
 //  2.1 Rounds
 
 const outputRoundValue = () => {
-  // remove win message or alert if exist
-  winnerMessage.innerHTML = "";
   for (let i = 0; i < roundsRadio.length; i++) {
     if (roundsRadio[i].checked == true) {
       roundsVal = roundsRadio[i].value;
@@ -190,7 +191,7 @@ const play = () => {
     if (userPoints > computerPoints) {
       winnerMessage.innerHTML = winMessage;
     } else if (userPoints < computerPoints) {
-      winnerMessage.innerHTML = `<h3 class="lost-style">❌  YOU LOST  ❌</h3>`;
+      lostMessage.style.display = "block";
     } else {
       winnerMessage.innerHTML = drawMessage;
     }
