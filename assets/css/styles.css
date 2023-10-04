@@ -205,7 +205,7 @@ main {
 }
 
 .play-choices img:hover {
-  background-color: var(--text-color);
+  background-color: var(--secundary-color);
 }
 
 .rounds-choices input,
