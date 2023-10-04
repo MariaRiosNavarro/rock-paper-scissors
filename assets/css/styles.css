@@ -27,10 +27,9 @@ html {
 header {
   width: 100%;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   top: 0;
-  letter-spacing: 0.5rem;
 }
 
 header img {
@@ -88,9 +87,10 @@ main {
   top: 4rem;
 }
 
-/* message/alert container */
+/* message container: lost & win */
+
 .message {
-  height: 7rem;
+  height: 5rem;
   position: absolute;
   top: 8rem;
   width: 70%;
@@ -100,44 +100,92 @@ main {
   flex-shrink: 0;
 }
 
-.lost-style {
-  background: linear-gradient(
-    90deg,
-    rgba(220, 47, 2, 0.5) 0%,
-    rgba(19, 28, 85, 0.5) 50%,
-    rgba(220, 47, 2, 0.5) 100%
-  );
-  background-size: 200% 100%;
-  animation: gradient-slide-lost 15s linear infinite;
+/* win message */
+
+.waviy {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.waviy span {
+  position: relative;
+  display: inline-block;
   color: var(--secundary-color);
-  border-radius: 8px;
-  padding: 1.7rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(0.1s * var(--i));
+  font-size: 1.5rem;
+}
+
+.waviy p {
+  display: inline-block;
+  width: 1rem;
+}
+
+.waviy .big {
+  font-size: 3rem;
+}
+
+/* draw message */
+
+/* .draw .letter {
+  animation: color-animation 4s linear infinite;
+  letter-spacing: 0.5rem;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  animation: flip 2s infinite;
+  animation-delay: calc(0.2s * var(--i));
+} */
+
+.draw .letter {
+  animation: combined-animation 4s linear infinite;
+  letter-spacing: 0.5rem;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+.letter-1 {
+  --color-1: orange;
+  --color-2: lightblue;
+  --color-3: rgb(219, 78, 18);
+}
+.letter-2 {
+  --color-1: rgb(219, 78, 18);
+  --color-2: orange;
+  --color-3: lightblue;
+}
+
+.letter-3 {
+  --color-1: lightblue;
+  --color-2: rgb(219, 78, 18);
+  --color-3: orange;
+}
+.letter-4 {
+  --color-1: orange;
+  --color-2: lightblue;
+  --color-3: rgb(219, 78, 18);
+}
+
+/* lost message */
+
+/* initial spiner */
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinner img {
-  height: 20rem;
+  height: 17rem;
 }
 
-.win-style {
-  background: linear-gradient(
-    90deg,
-    #0096c7 0%,
-    rgba(19, 28, 85, 0.5) 50%,
-    #0096c7 100%
-  );
-  background-size: 200% 100%;
-  animation: gradient-slide-win 15s linear infinite;
-  color: var(--secundary-color);
-  border-radius: 8px;
-  padding: 1.7rem;
-}
-
-.tied-style {
-  border: 2px solid var(--secundary-color);
-  border-radius: 8px;
-  color: var(--secundary-color);
-  padding: 1.7rem;
-}
+/* rounds section */
 
 .round-wrapper {
   height: 10rem;
@@ -175,6 +223,30 @@ main {
   margin: 1rem;
 }
 
+.rounds-choices label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.rounds-choices label p {
+  font-size: 2.3rem;
+  padding: 0.5rem;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+}
+
+.rounds-choices label p:hover {
+  background-color: var(--secundary-color);
+  color: var(--primary-color);
+}
+
+/* rounds section & play section  */
+
 .rounds-choices,
 .play-choices {
   display: flex;
@@ -182,6 +254,15 @@ main {
   justify-content: center;
   margin: 2rem;
 }
+
+.rounds-choices input,
+.play-choices input {
+  position: relative;
+  right: 3.4rem;
+  visibility: hidden;
+}
+
+/* play section */
 
 .play-choices img {
   width: 6rem;
@@ -204,35 +285,6 @@ main {
 
 .play-choices img:hover {
   background-color: var(--secundary-color);
-}
-
-.rounds-choices input,
-.play-choices input {
-  position: relative;
-  right: 3.4rem;
-  visibility: hidden;
-}
-
-.rounds-choices label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 0;
-}
-
-.rounds-choices label p {
-  font-size: 2.3rem;
-  padding: 0.5rem;
-  border: 2px solid var(--text-color);
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
-  text-align: center;
-}
-
-.rounds-choices label p:hover {
-  background-color: var(--secundary-color);
-  color: var(--primary-color);
 }
 
 /* Outputs */
@@ -375,21 +427,35 @@ footer a {
   }
 }
 
-@keyframes gradient-slide-lost {
-  0% {
-    background-position: 200% 0;
-  }
+/* Win message animation */
+
+@keyframes waviy {
+  0%,
+  40%,
   100% {
-    background-position: -200% 0;
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
   }
 }
 
-@keyframes gradient-slide-win {
-  0% {
-    background-position: 200% 0;
-  }
+/* draw mesage animation */
+
+@keyframes combined-animation {
+  0%,
   100% {
-    background-position: -200% 0;
+    color: var(--color-1);
+  }
+  33% {
+    color: var(--color-2);
+  }
+  66% {
+    color: var(--color-3);
+  }
+
+  80% {
+    transform: rotateY(360deg);
   }
 }
 
@@ -399,10 +465,12 @@ footer a {
   .wrapper {
     justify-content: flex-start;
     gap: 0;
+    height: 100vh;
   }
 
   header {
     position: relative;
+    padding: 0;
   }
 
   main {
@@ -412,25 +480,43 @@ footer a {
   }
   main section {
     height: 10rem;
+    margin: 0;
+  }
+
+  .message {
+    margin: 0;
+    height: 4rem;
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 1;
   }
 
   .output-section {
     height: 13rem;
-  }
-
-  .message {
     position: relative;
-    height: 5rem;
-    width: 85%;
-    top: 0;
+    top: -2.5rem;
   }
 
   .round-wrapper,
   .rounds-output {
     height: 10rem;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -1.5rem;
   }
 
   .play-wrapper {
     margin-top: 0.5rem;
+    position: relative;
+    top: -2.5rem;
+  }
+
+  .restart-btn {
+    position: relative;
+    top: -2.5rem;
   }
 }

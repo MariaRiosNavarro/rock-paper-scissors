@@ -21,7 +21,6 @@ spiner.style.display = "block";
 
 // 1.2 Rounds
 
-const roundForm = document.querySelector('[data-js="rounds-choices"]');
 const roundWrapper = document.querySelector('[data-js="round-wrapper"]');
 const roundsRadio = document.querySelectorAll('input[name="rounds"]');
 const roundOutput = document.querySelector('[data-js="rounds-output"]');
@@ -33,7 +32,6 @@ const round7 = document.querySelector('[data-js="round7"]');
 
 // 1.3 Play Options
 
-const playForm = document.querySelector('[data-js="play-choices"]');
 const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
 const rockImg = document.querySelector('[data-js="rock-img"]');
@@ -43,6 +41,7 @@ const scissors = document.querySelector('[data-js="scissors"]');
 const scissorsImg = document.querySelector('[data-js="scissors-img"]');
 
 // 1.4 restart
+restartBtn.style.display = "none";
 
 const restart = () => {
   location.reload();
@@ -68,6 +67,7 @@ const outputRoundValue = () => {
       roundsVal = roundsRadio[i].value;
     }
     // 2.2 After Choice display round Container counter
+    restartBtn.style.display = "block";
     roundWrapper.style.display = "none";
     roundOutput.style.display = "block";
     spiner.style.display = "none";
@@ -82,6 +82,11 @@ const outputRoundValue = () => {
 round3.addEventListener("click", outputRoundValue);
 round5.addEventListener("click", outputRoundValue);
 round7.addEventListener("click", outputRoundValue);
+
+// Extra: Add animation to lost and win message
+
+const winMessage = `<div class="waviy"><span style="--i:1">🏆</span><p></p><span style="--i:2">Y</span><span style="--i:3">O</span><span style="--i:4">U</span><p></p><span class="big" style="--i:5">🏆</span><p></p><span style="--i:6">W</span><span style="--i:7">I</span><span style="--i:8">N</span> <p></p><span style="--i:9">🏆</span></div>`;
+const drawMessage = `<div class="draw"><span class="letter letter-1" style="--i:1">D</span><span class="letter letter-2" style="--i:2">R</span><span class="letter letter-3"style="--i:3" >A</span><span class="letter letter-4" style="--i:4">W</span></div>`;
 
 // 3 play game function
 
@@ -183,13 +188,16 @@ const play = () => {
     papper.removeEventListener("click", play);
     scissors.removeEventListener("click", play);
     if (userPoints > computerPoints) {
-      winnerMessage.innerHTML = `<h3 class="win-style">🏆  YOU WIN  🏆</h3>`;
+      winnerMessage.innerHTML = winMessage;
     } else if (userPoints < computerPoints) {
       winnerMessage.innerHTML = `<h3 class="lost-style">❌  YOU LOST  ❌</h3>`;
     } else {
-      winnerMessage.innerHTML = `<h3 class="tied-style"> TIED </h3>`;
+      winnerMessage.innerHTML = drawMessage;
     }
     restartBtn.classList.add("restart-btn-shadow");
+    rockImg.src = "assets/img/rock.gif";
+    papperImg.src = "assets/img/papper.gif";
+    scissorsImg.src = "assets/img/scissors.gif";
   }
 };
 
