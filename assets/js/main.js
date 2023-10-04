@@ -102,13 +102,13 @@ const play = () => {
   let randomComputerChoice;
   if (randomNumber === 3) {
     randomComputerChoice = "rock";
-    computerChoiceOutput.src = "./assets/img/rockFullC.png";
+    computerChoiceOutput.src = "assets/imgs/rockFullC.png";
   } else if (randomNumber === 2) {
     randomComputerChoice = "papper";
-    computerChoiceOutput.src = "./assets/img/papperFullC.png";
+    computerChoiceOutput.src = "assets/imgs/papperFullC.png";
   } else {
     randomComputerChoice = "scissors";
-    computerChoiceOutput.src = "./assets/img/scissorsFullC.png";
+    computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
   }
 
   //  3.2 Handle User Choice
@@ -119,20 +119,20 @@ const play = () => {
     if (playRadio[i].checked == true) {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
-        userChoiceOutput.src = "./assets/img/rockFull.png";
+        userChoiceOutput.src = "assets/imgs/rockFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         papperImg.src = "assets/gif/papper.gif";
-        rockImg.src = "./assets/img/rockFull.png";
+        rockImg.src = "assets/imgs/rockFull.png";
       } else if (userChoice === "papper") {
-        userChoiceOutput.src = "./assets/img/papperFull.png";
+        userChoiceOutput.src = "assets/imgs/papperFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         rockImg.src = "assets/gif/rock.gif";
-        papperImg.src = "./assets/img/papperFull.png";
+        papperImg.src = "assets/imgs/papperFull.png";
       } else {
-        userChoiceOutput.src = "./assets/img/scissorsFull.png";
+        userChoiceOutput.src = "assets/imgs/scissorsFull.png";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/gif/papper.gif";
-        scissorsImg.src = "./assets/img/scissorsFull.png";
+        scissorsImg.src = "assets/imgs/scissorsFull.png";
       }
     }
   }
