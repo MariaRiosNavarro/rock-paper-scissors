@@ -116,11 +116,6 @@ main {
 
 .spinner img {
   height: 20rem;
-  border: 3px solid red;
-}
-
-.spinner {
-  border: 1px solid green;
 }
 
 .win-style {
@@ -147,7 +142,6 @@ main {
 .round-wrapper {
   height: 10rem;
   margin: 0;
-  border: 3px solid violet;
 }
 
 .rounds-output {
