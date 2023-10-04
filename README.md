@@ -8,10 +8,10 @@ I test a lot of animations and features of css in this repository
 
 <div>
 
-<img src="./assets/imgs/readmeA.png" width="200px">
-<img src="./assets/imgs/readmeB.png" width="200px">
-<img src="./assets/imgs/readmeC.png" width="200px">
-<img src="./assets/imgs/readmeD.png" width="200px">
+<img src="./assets/imgs/readme1.png" width="200px">
+<img src="./assets/imgs/readme2.png" width="200px">
+<img src="./assets/imgs/readme3.png" width="200px">
+<img src="./assets/imgs/readme4.png" width="200px">
 
 </div>
 
@@ -19,10 +19,10 @@ I test a lot of animations and features of css in this repository
 
 <div>
 
-<img src="./assets/imgs/readmeE.png" width="200px">
-<img src="./assets/imgs/readmeF.png" width="200px">
-<img src="./assets/imgs/readmeG.png" width="200px">
-<img src="./assets/imgs/readmeH.png" width="200px">
+<img src="./assets/imgs/readme5.png" width="200px">
+<img src="./assets/imgs/readme6.png" width="200px">
+<img src="./assets/imgs/readme7.png" width="200px">
+<img src="./assets/imgs/readme8.png" width="200px">
 
 </div>
 
@@ -30,9 +30,9 @@ I test a lot of animations and features of css in this repository
 
 <div>
 
-<img src="./assets/imgs/readmeI.png" width="300px">
-<img src="./assets/imgs/readmeJ.png" width="300px">
-<img src="./assets/imgs/readmeK.png" width="300px">
-<img src="./assets/imgs/readmeL.png" width="300px">
+<img src="./assets/imgs/readme9.png" width="200px">
+<img src="./assets/imgs/readme10.png" width="200px">
+<img src="./assets/imgs/readme11.png" width="200px">
+<img src="./assets/imgs/readme12.png" width="200px">
 
 </div>
