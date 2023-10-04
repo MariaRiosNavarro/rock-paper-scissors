@@ -1,5 +1,5 @@
 // 1. Save variables
-// 1. Outputs
+// 1.1 Outputs
 
 const outputWrapper = document.querySelector('[data-js="output-wrapper"]');
 outputWrapper.style.visibility = "hidden";
@@ -13,6 +13,11 @@ const computerPointsOutput = document.querySelector(
 );
 const winnerMessage = document.querySelector('[data-js="win-lost-message"]');
 const restartBtn = document.querySelector('[data-js="restart-btn"]');
+const playWrapper = document.querySelector('[data-js="play-wrapper"]');
+const spiner = document.querySelector('[data-js="spinner"]');
+
+playWrapper.style.display = "none";
+spiner.style.display = "block";
 
 // 1.2 Rounds
 
@@ -31,13 +36,17 @@ const round7 = document.querySelector('[data-js="round7"]');
 const playForm = document.querySelector('[data-js="play-choices"]');
 const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
+const rockImg = document.querySelector('[data-js="rock-img"]');
 const papper = document.querySelector('[data-js="papper"]');
+const papperImg = document.querySelector('[data-js="papper-img"]');
 const scissors = document.querySelector('[data-js="scissors"]');
+const scissorsImg = document.querySelector('[data-js="scissors-img"]');
 
 // 1.4 restart
 
 const restart = () => {
   location.reload();
+  restartBtn.classList.remove("restart-btn-shadow");
   outputWrapper.style.visibility = "hidden";
 };
 
@@ -61,6 +70,9 @@ const outputRoundValue = () => {
     // 2.2 After Choice display round Container counter
     roundWrapper.style.display = "none";
     roundOutput.style.display = "block";
+    spiner.style.display = "none";
+    playWrapper.style.display = "block";
+
     roundsTotal.innerHTML = roundsVal;
     roundsRest.innerHTML = roundsVal;
     rounds = roundsVal;
@@ -84,13 +96,13 @@ const play = () => {
   let randomComputerChoice;
   if (randomNumber === 3) {
     randomComputerChoice = "rock";
-    computerChoiceOutput.src = "assets/img/rockFull.png";
+    computerChoiceOutput.src = "assets/img/rockFullC.png";
   } else if (randomNumber === 2) {
     randomComputerChoice = "papper";
-    computerChoiceOutput.src = "assets/img/papperFull.png";
+    computerChoiceOutput.src = "assets/img/papperFullC.png";
   } else {
     randomComputerChoice = "scissors";
-    computerChoiceOutput.src = "assets/img/scissorsFull.png";
+    computerChoiceOutput.src = "assets/img/scissorsFullC.png";
   }
 
   //  3.2 Handle User Choice
@@ -102,10 +114,19 @@ const play = () => {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
         userChoiceOutput.src = "assets/img/rockFull.png";
+        scissorsImg.src = "assets/img/scissors.gif";
+        papperImg.src = "assets/img/papper.gif";
+        rockImg.src = "assets/img/rockFull.png";
       } else if (userChoice === "papper") {
         userChoiceOutput.src = "assets/img/papperFull.png";
+        scissorsImg.src = "assets/img/scissors.gif";
+        rockImg.src = "assets/img/rock.gif";
+        papperImg.src = "assets/img/papperFull.png";
       } else {
         userChoiceOutput.src = "assets/img/scissorsFull.png";
+        rockImg.src = "assets/img/rock.gif";
+        papperImg.src = "assets/img/papper.gif";
+        scissorsImg.src = "assets/img/scissorsFull.png";
       }
     }
   }
@@ -127,17 +148,25 @@ const play = () => {
     // Computer wins
     computerPoints++;
   }
+
+  // Add style to resalt the winner
+
+  if (userPoints > computerPoints) {
+    userPointsOutput.classList.add("more-points");
+    computerPointsOutput.classList.remove("more-points");
+  } else if (computerPoints > userPoints) {
+    computerPointsOutput.classList.add("more-points");
+    userPointsOutput.classList.remove("more-points");
+  } else {
+    userPointsOutput.classList.remove("more-points");
+    computerPointsOutput.classList.remove("more-points");
+  }
+
   userPointsOutput.innerHTML = userPoints;
   computerPointsOutput.innerHTML = computerPoints;
 
   // 3.3 Rounds Handling after click
 
-  // 3.3.a- Alerts the user if he/she/it has not chosen the rounds
-  if (roundsVal === 0) {
-    winnerMessage.innerHTML = `<h3 class ="alert">How many rounds, do you want to play?</h3>`;
-    outputWrapper.style.visibility = "hidden";
-    return;
-  }
   // 3.3.b- We remove -1 only until we reach 0
   if (rounds > 0) {
     rounds--;
@@ -154,12 +183,13 @@ const play = () => {
     papper.removeEventListener("click", play);
     scissors.removeEventListener("click", play);
     if (userPoints > computerPoints) {
-      winnerMessage.innerHTML = `<h3>🏆  YOU WIN  🏆</h3>`;
+      winnerMessage.innerHTML = `<h3 class="win-style">🏆  YOU WIN  🏆</h3>`;
     } else if (userPoints < computerPoints) {
-      winnerMessage.innerHTML = `<h3>❌  YOU LOST  ❌</h3>`;
+      winnerMessage.innerHTML = `<h3 class="lost-style">❌  YOU LOST  ❌</h3>`;
     } else {
-      winnerMessage.innerHTML = `<h3> TIED </h3>`;
+      winnerMessage.innerHTML = `<h3 class="tied-style"> TIED </h3>`;
     }
+    restartBtn.classList.add("restart-btn-shadow");
   }
 };
 

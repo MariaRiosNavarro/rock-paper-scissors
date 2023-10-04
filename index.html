@@ -9,7 +9,10 @@
   <body>
     <div class="wrapper" data-js="wrapper">
       <header>
-        <h1 data-js="title">Rock Papper Scissors</h1>
+        <div aria-hidden="true">
+          <h1>Rock Papper Scissors</h1>
+        </div>
+        <img src="./assets/img/logo.GIF" alt="logo" />
       </header>
       <section data-js="win-lost-message" class="message"></section>
       <main>
@@ -17,11 +20,8 @@
           <article data-js="round-wrapper" class="round-wrapper">
             <h2>How many rounds?</h2>
             <form class="rounds-choices" data-js="rounds-choices">
-              <label for="round3">
-                <img
-                  src="./assets/img/icons8-eingekreiste-3-100.png"
-                  alt="round3"
-                />
+              <label for="round3"
+                ><p>3</p>
                 <input
                   value="3"
                   type="radio"
@@ -30,11 +30,8 @@
                   data-js="round3"
                 />
               </label>
-              <label for="round5">
-                <img
-                  src="./assets/img/icons8-eingekreiste-5-100.png"
-                  alt="round5"
-                />
+              <label for="round5"
+                ><p>5</p>
                 <input
                   value="5"
                   type="radio"
@@ -43,11 +40,8 @@
                   data-js="round5"
                 />
               </label>
-              <label for="round7">
-                <img
-                  src="./assets/img/icons8-eingekreiste-7-100.png"
-                  alt="round4"
-                />
+              <label for="round7"
+                ><p>7</p>
                 <input
                   value="7"
                   type="radio"
@@ -70,10 +64,14 @@
           </article>
         </section>
         <section>
-          <article class="play-wrapper">
+          <article class="play-wrapper" data-js="play-wrapper">
             <form class="play-choices" data-js="play-choices">
               <label for="rock">
-                <img src="./assets/img/rock.png" alt="rock" />
+                <img
+                  data-js="rock-img"
+                  src="./assets/img/rock.gif"
+                  alt="rock"
+                />
                 <input
                   type="radio"
                   name="play"
@@ -83,7 +81,11 @@
                 />
               </label>
               <label for="papper">
-                <img src="./assets/img/papper.png" alt="papper" />
+                <img
+                  data-js="papper-img"
+                  src="./assets/img/papper.gif"
+                  alt="papper"
+                />
                 <input
                   type="radio"
                   name="play"
@@ -93,7 +95,11 @@
                 />
               </label>
               <label for="scissors">
-                <img src="./assets/img/scissors.png" alt="scissors" />
+                <img
+                  data-js="scissors-img"
+                  src="./assets/img/scissors.gif"
+                  alt="scissors"
+                />
                 <input
                   type="radio"
                   name="play"
@@ -103,6 +109,16 @@
                 />
               </label>
             </form>
+          </article>
+          <article>
+            <div class="spinner">
+              <img
+                src="./assets/img/spiner.gif"
+                data-js="spinner"
+                alt="spiner"
+              />
+            </div>
+            <div class="spinner"></div>
           </article>
         </section>
         <section class="output-section">
@@ -140,10 +156,9 @@
       </main>
 
       <footer>
-        <a target="_blank" href="https://icons8.com/icon/116613/eingekreiste-3"
-          >numbers</a
+        <a target="_blank" href="https://github.com/MariaRiosNavarro">
+          © Maria Rios Navarro</a
         >
-        icons by <a target="_blank" href="https://icons8.com">Icons8</a>
       </footer>
     </div>
     <script src="./assets/js/main.js"></script>
