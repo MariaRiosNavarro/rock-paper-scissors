@@ -101,13 +101,13 @@ const play = () => {
   let randomComputerChoice;
   if (randomNumber === 3) {
     randomComputerChoice = "rock";
-    computerChoiceOutput.src = "assets/img/rockFullC.png";
+    computerChoiceOutput.src = "./assets/img/rockFullC.png";
   } else if (randomNumber === 2) {
     randomComputerChoice = "papper";
-    computerChoiceOutput.src = "assets/img/papperFullC.png";
+    computerChoiceOutput.src = "./assets/img/papperFullC.png";
   } else {
     randomComputerChoice = "scissors";
-    computerChoiceOutput.src = "assets/img/scissorsFullC.png";
+    computerChoiceOutput.src = "./assets/img/scissorsFullC.png";
   }
 
   //  3.2 Handle User Choice
@@ -118,20 +118,20 @@ const play = () => {
     if (playRadio[i].checked == true) {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
-        userChoiceOutput.src = "assets/img/rockFull.png";
-        scissorsImg.src = "assets/img/scissors.gif";
-        papperImg.src = "assets/img/papper.gif";
-        rockImg.src = "assets/img/rockFull.png";
+        userChoiceOutput.src = "./assets/img/rockFull.png";
+        scissorsImg.src = "./assets/img/scissors.gif";
+        papperImg.src = "./assets/img/papper.gif";
+        rockImg.src = "./assets/img/rockFull.png";
       } else if (userChoice === "papper") {
-        userChoiceOutput.src = "assets/img/papperFull.png";
-        scissorsImg.src = "assets/img/scissors.gif";
-        rockImg.src = "assets/img/rock.gif";
-        papperImg.src = "assets/img/papperFull.png";
+        userChoiceOutput.src = "./assets/img/papperFull.png";
+        scissorsImg.src = "./assets/img/scissors.gif";
+        rockImg.src = "./assets/img/rock.gif";
+        papperImg.src = "./assets/img/papperFull.png";
       } else {
-        userChoiceOutput.src = "assets/img/scissorsFull.png";
-        rockImg.src = "assets/img/rock.gif";
-        papperImg.src = "assets/img/papper.gif";
-        scissorsImg.src = "assets/img/scissorsFull.png";
+        userChoiceOutput.src = "./assets/img/scissorsFull.png";
+        rockImg.src = "./assets/img/rock.gif";
+        papperImg.src = "./assets/img/papper.gif";
+        scissorsImg.src = "./assets/img/scissorsFull.png";
       }
     }
   }
@@ -195,9 +195,9 @@ const play = () => {
       winnerMessage.innerHTML = drawMessage;
     }
     restartBtn.classList.add("restart-btn-shadow");
-    rockImg.src = "assets/img/rock.gif";
-    papperImg.src = "assets/img/papper.gif";
-    scissorsImg.src = "assets/img/scissors.gif";
+    rockImg.src = "./assets/img/rock.gif";
+    papperImg.src = "./assets/img/papper.gif";
+    scissorsImg.src = "./assets/img/scissors.gif";
   }
 };
 
