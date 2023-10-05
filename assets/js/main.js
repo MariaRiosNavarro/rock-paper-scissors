@@ -1,5 +1,5 @@
-// 1. Save variables
-// 1.1 Outputs
+//-- 1. Save variables
+//-- 1.1 Outputs
 
 const outputWrapper = document.querySelector('[data-js="output-wrapper"]');
 outputWrapper.style.visibility = "hidden";
@@ -22,7 +22,7 @@ playWrapper.style.display = "none";
 spiner.style.display = "block";
 lostMessage.style.display = "none";
 
-// 1.2 Rounds
+//-- 1.2 Rounds
 
 const roundWrapper = document.querySelector('[data-js="round-wrapper"]');
 const roundsRadio = document.querySelectorAll('input[name="rounds"]');
@@ -33,7 +33,7 @@ const round3 = document.querySelector('[data-js="round3"]');
 const round5 = document.querySelector('[data-js="round5"]');
 const round7 = document.querySelector('[data-js="round7"]');
 
-// 1.3 Play Options
+//-- 1.3 Play Options
 
 const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
@@ -60,14 +60,14 @@ let userPoints = 0;
 let computerPoints = 0;
 let roundsVal = 0;
 
-//  2.1 Rounds
+// -- 2.1 Rounds
 
 const outputRoundValue = () => {
   for (let i = 0; i < roundsRadio.length; i++) {
     if (roundsRadio[i].checked == true) {
       roundsVal = roundsRadio[i].value;
     }
-    // 2.2 After Choice display round Container counter
+    //--- 2.2 After Choice display round Container counter
     restartBtn.style.display = "block";
     roundWrapper.style.display = "none";
     roundOutput.style.display = "block";
@@ -89,43 +89,17 @@ round7.addEventListener("click", outputRoundValue);
 const winMessage = `<div class="waviy"><span style="--i:1">🏆</span><p></p><span style="--i:2">Y</span><span style="--i:3">O</span><span style="--i:4">U</span><p></p><span class="big" style="--i:5">🏆</span><p></p><span style="--i:6">W</span><span style="--i:7">I</span><span style="--i:8">N</span> <p></p><span style="--i:9">🏆</span></div>`;
 const drawMessage = `<div class="draw"><span class="letter letter-1" style="--i:1">D</span><span class="letter letter-2" style="--i:2">R</span><span class="letter letter-3"style="--i:3" >A</span><span class="letter letter-4" style="--i:4">W</span></div>`;
 
-// 3 play game function
 let totalUserPoints = 0;
 let totalComputerPoints = 0;
 let userChoice;
 let randomComputerChoice;
 
-// 3.2 Declare the rules to win
-
-// const winRound = () => {
-//   if (
-//     (userChoice === "rock" && randomComputerChoice === "scissors") ||
-//     (userChoice === "scissors" && randomComputerChoice === "paper") ||
-//     (userChoice === "paper" && randomComputerChoice === "rock")
-//   ) {
-//     // User wins
-//     console.log("winUser");
-//     userPoints++;
-//   } else if (
-//     (userChoice === "scissors" && randomComputerChoice === "rock") ||
-//     (userChoice === "paper" && randomComputerChoice === "scissors") ||
-//     (userChoice === "rock" && randomComputerChoice === "paper")
-//   ) {
-//     // Computer wins
-//     console.log("CompWIn");
-//     computerPoints++;
-//   } else {
-//     userPoints += 0;
-//     computerPoints += 0;
-//   }
-// };
-
 const play = () => {
-  // 3.0 Visibility of results on
+  // ---3.0 Visibility of results on
 
   outputWrapper.style.visibility = "visible";
 
-  // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
+  //--- 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
 
   const randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber === 3) {
@@ -139,7 +113,7 @@ const play = () => {
     computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
   }
 
-  //  3.3 Handle User Choice
+  //--  3.3 Handle User Choice
 
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
@@ -149,37 +123,21 @@ const play = () => {
         scissorsImg.src = "assets/gif/scissors.gif";
         papperImg.src = "assets/gif/papper.gif";
         rockImg.src = "assets/imgs/rockFull.png";
-        winRound();
       } else if (userChoice === "papper") {
         userChoiceOutput.src = "assets/imgs/papperFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/imgs/papperFull.png";
-        winRound();
       } else {
         userChoiceOutput.src = "assets/imgs/scissorsFull.png";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/gif/papper.gif";
         scissorsImg.src = "assets/imgs/scissorsFull.png";
-        winRound();
       }
     }
   }
 
-  // console.log(userChoice, randomComputerChoice);
-  // console.log(userPoints, computerPoints);
-
-  // console.log("2", userChoice, randomComputerChoice);
-  console.log("2", userPoints, computerPoints);
-
-  totalUserPoints += userPoints;
-  console.log("A", totalUserPoints, userPoints);
-
-  totalComputerPoints += computerPoints;
-
-  console.log("B", totalComputerPoints, computerPoints);
-
-  //This old version: wenn i choose papper and computer choose rock, win the computer?
+  // ----3.2 Declare the rules to win . Play game function
 
   if (userChoice === randomComputerChoice) {
     // no win
@@ -216,7 +174,7 @@ const play = () => {
   userPointsOutput.innerHTML = userPoints;
   computerPointsOutput.innerHTML = computerPoints;
 
-  // 3.3 Rounds Handling after click
+  // ---3.3! Rounds Handling after click
 
   // 3.3.b- We remove -1 only until we reach 0
   if (rounds > 0) {
@@ -247,7 +205,7 @@ const play = () => {
   }
 };
 
-// 4. we give the function to the 3 buttons
+//--- 4. we give the function to the 3 buttons
 // restartBtn.classList.add("restart-btn-animation")
 rock.addEventListener("click", play);
 papper.addEventListener("click", play);
