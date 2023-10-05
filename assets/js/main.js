@@ -149,8 +149,7 @@ const play = () => {
   ) {
     // User wins
     userPoints++;
-  }
-  {
+  } else {
     // Computer wins
     computerPoints++;
   }
