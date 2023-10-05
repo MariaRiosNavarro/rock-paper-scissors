@@ -105,85 +105,78 @@ const play = () => {
     randomComputerChoice = "rock";
     computerChoiceOutput.src = "assets/imgs/rockFullC.png";
   } else if (randomNumber === 2) {
-    randomComputerChoice = "papper";
+    randomComputerChoice = "paper";
     computerChoiceOutput.src = "assets/imgs/papperFullC.png";
   } else {
     randomComputerChoice = "scissors";
     computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
   }
 
-  //--  3.2 Handle User Choice
+  //--  3.2 Handle User Choice & Play game function
+
+  //#IMPORTANT: with a simple if/else statement with
+  //#the play rules, was a bug, and not all choices was accepted.
+  //#We need to add the game (rock->win->scissors,
+  //#scissors->win->papper, paper->win->scissors etc..) in the loop
+  //#I have integrated the game function according
+  //#to the player's choice, so that all the options are read,
+  //#if I put it out with the if/else only
+  //#the first of the conditional options is read.
 
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
       userChoice = playRadio[i].value;
+      console.log("????", userChoice, typeof userChoice);
       if (userChoice === "rock") {
+        console.log("----------1-rock");
         userChoiceOutput.src = "assets/imgs/rockFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         papperImg.src = "assets/gif/papper.gif";
         rockImg.src = "assets/imgs/rockFull.png";
-      } else if (userChoice === "papper") {
+        // !play handler if user choose rock
+        if (randomComputerChoice === "scissors") {
+          userPoints++;
+        } else if (randomComputerChoice === "paper") {
+          computerPoints++;
+        } else {
+          userPoints += 0;
+          computerPoints += 0;
+        }
+      } else if (userChoice === "paper") {
         userChoiceOutput.src = "assets/imgs/papperFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/imgs/papperFull.png";
+        // !play handler if user choose paper
+        if (randomComputerChoice === "rock") {
+          userPoints++;
+        } else if (randomComputerChoice === "scissors") {
+          computerPoints++;
+        } else {
+          userPoints += 0;
+          computerPoints += 0;
+        }
       } else {
         userChoiceOutput.src = "assets/imgs/scissorsFull.png";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/gif/papper.gif";
         scissorsImg.src = "assets/imgs/scissorsFull.png";
+        //! play handler if user choose scissors
+        if (randomComputerChoice === "paper") {
+          userPoints++;
+        } else if (randomComputerChoice === "rock") {
+          computerPoints++;
+        } else {
+          userPoints += 0;
+          computerPoints += 0;
+        }
       }
     }
-  }
-
-  // ----3.3 Declare the rules to win . Play game function
-
-  // if (userChoice === randomComputerChoice) {
-  //   // no win
-  //   userPoints += 0;
-  //   computerPoints += 0;
-  // } else if (
-  //   (userChoice === "rock" && randomComputerChoice === "scissors") ||
-  //   (userChoice === "scissors" && randomComputerChoice === "paper") ||
-  //   (userChoice === "paper" && randomComputerChoice === "rock")
-  // ) {
-  //   // User wins
-  //   userPoints++;
-  // } else {
-  //   // Computer wins
-  //   computerPoints++;
-  // }
-
-  switch (true) {
-    case userChoice === randomComputerChoice:
-      // Unentschieden
-      userPoints += 0;
-      computerPoints += 0;
-      console.log(userChoice, randomComputerChoice);
-      break;
-    case userChoice === "rock" && randomComputerChoice === "scissors":
-    case userChoice === "scissors" && randomComputerChoice === "paper":
-    case userChoice === "paper" && randomComputerChoice === "rock":
-      // Benutzer gewinnt
-      console.log(userChoice, randomComputerChoice);
-      userPoints++;
-      break;
-    case randomComputerChoice === "rock" && userChoice === "scissors":
-    case randomComputerChoice === "scissors" && userChoice === "paper":
-    case randomComputerChoice === "paper" && userChoice === "rock":
-      // Computer gewinnt
-      console.log(userChoice, randomComputerChoice);
-      computerPoints++;
-      break;
-    default:
-      console.log("?");
-      break;
   }
 
   // --3.4 --Pointshandle
 
   if (userPoints > computerPoints) {
-    // Add style to resalt the winner
     userPointsOutput.classList.add("more-points");
     computerPointsOutput.classList.remove("more-points");
   } else if (computerPoints > userPoints) {
@@ -200,6 +193,7 @@ const play = () => {
   // ---3.3! Rounds Handling after click
 
   // 3.3.b- We remove -1 only until we reach 0
+
   if (rounds > 0) {
     rounds--;
   }
