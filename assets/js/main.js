@@ -39,8 +39,8 @@ const round7 = document.querySelector('[data-js="round7"]');
 const playRadio = document.querySelectorAll('input[name="play"]');
 const rock = document.querySelector('[data-js="rock"]');
 const rockImg = document.querySelector('[data-js="rock-img"]');
-const papper = document.querySelector('[data-js="papper"]');
-const papperImg = document.querySelector('[data-js="papper-img"]');
+const paper = document.querySelector('[data-js="paper"]');
+const paperImg = document.querySelector('[data-js="paper-img"]');
 const scissors = document.querySelector('[data-js="scissors"]');
 const scissorsImg = document.querySelector('[data-js="scissors-img"]');
 
@@ -106,7 +106,7 @@ const play = () => {
     computerChoiceOutput.src = "assets/imgs/rockFullC.png";
   } else if (randomNumber === 2) {
     randomComputerChoice = "paper";
-    computerChoiceOutput.src = "assets/imgs/papperFullC.png";
+    computerChoiceOutput.src = "assets/imgs/paperFullC.png";
   } else {
     randomComputerChoice = "scissors";
     computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
@@ -117,11 +117,11 @@ const play = () => {
   //#IMPORTANT: with a simple if/else statement with
   //#the play rules, was a bug, and not all choices was accepted.
   //#We need to add the game (rock->win->scissors,
-  //#scissors->win->papper, paper->win->scissors etc..) in the loop
+  //#scissors->win->paper, paper->win->scissors etc..) in the loop
   //#I have integrated the game function according
   //#to the player's choice, so that all the options are read,
   //#if I put it out with the if/else only
-  //#the first of the conditional options is read.
+  //#the first of the conditional options is read it.
 
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
@@ -131,7 +131,7 @@ const play = () => {
         console.log("----------1-rock");
         userChoiceOutput.src = "assets/imgs/rockFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
-        papperImg.src = "assets/gif/papper.gif";
+        paperImg.src = "assets/gif/paper.gif";
         rockImg.src = "assets/imgs/rockFull.png";
         // !play handler if user choose rock
         if (randomComputerChoice === "scissors") {
@@ -143,10 +143,10 @@ const play = () => {
           computerPoints += 0;
         }
       } else if (userChoice === "paper") {
-        userChoiceOutput.src = "assets/imgs/papperFull.png";
+        userChoiceOutput.src = "assets/imgs/paperFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         rockImg.src = "assets/gif/rock.gif";
-        papperImg.src = "assets/imgs/papperFull.png";
+        paperImg.src = "assets/imgs/paperFull.png";
         // !play handler if user choose paper
         if (randomComputerChoice === "rock") {
           userPoints++;
@@ -159,7 +159,7 @@ const play = () => {
       } else {
         userChoiceOutput.src = "assets/imgs/scissorsFull.png";
         rockImg.src = "assets/gif/rock.gif";
-        papperImg.src = "assets/gif/papper.gif";
+        paperImg.src = "assets/gif/paper.gif";
         scissorsImg.src = "assets/imgs/scissorsFull.png";
         //! play handler if user choose scissors
         if (randomComputerChoice === "paper") {
@@ -200,13 +200,13 @@ const play = () => {
   roundsRest.innerHTML = rounds;
 
   // -3.4.b- If we reach 0 we declare the winner and set the counter to 0
-  // -(even if it has finished, if it continues to click the counter
+  // -Even if it has finished, if it continues to click the counter
   // -does not move to negative. We use <= instead === becouse we need
   // -to count the last point.
 
   if (rounds <= 0) {
     rock.removeEventListener("click", play);
-    papper.removeEventListener("click", play);
+    paper.removeEventListener("click", play);
     scissors.removeEventListener("click", play);
     if (userPoints > computerPoints) {
       winnerMessage.innerHTML = winMessage;
@@ -217,12 +217,12 @@ const play = () => {
     }
     restartBtn.classList.add("restart-btn-shadow");
     rockImg.src = "assets/gif/rock.gif";
-    papperImg.src = "assets/gif/papper.gif";
+    paperImg.src = "assets/gif/paper.gif";
     scissorsImg.src = "assets/gif/scissors.gif";
   }
 };
 
 //--- 4. we give the function to the 3 buttons
 rock.addEventListener("click", play);
-papper.addEventListener("click", play);
+paper.addEventListener("click", play);
 scissors.addEventListener("click", play);
