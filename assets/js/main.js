@@ -90,6 +90,35 @@ const winMessage = `<div class="waviy"><span style="--i:1">🏆</span><p></p><sp
 const drawMessage = `<div class="draw"><span class="letter letter-1" style="--i:1">D</span><span class="letter letter-2" style="--i:2">R</span><span class="letter letter-3"style="--i:3" >A</span><span class="letter letter-4" style="--i:4">W</span></div>`;
 
 // 3 play game function
+let totalUserPoints = 0;
+let totalComputerPoints = 0;
+let userChoice;
+let randomComputerChoice;
+
+// 3.2 Declare the rules to win
+
+const winRound = () => {
+  if (
+    (userChoice === "rock" && randomComputerChoice === "scissors") ||
+    (userChoice === "scissors" && randomComputerChoice === "paper") ||
+    (userChoice === "paper" && randomComputerChoice === "rock")
+  ) {
+    // User wins
+    console.log("winUser");
+    userPoints++;
+  } else if (
+    (userChoice === "scissors" && randomComputerChoice === "rock") ||
+    (userChoice === "paper" && randomComputerChoice === "scissors") ||
+    (userChoice === "rock" && randomComputerChoice === "paper")
+  ) {
+    // Computer wins
+    console.log("CompWIn");
+    computerPoints++;
+  } else {
+    userPoints += 0;
+    computerPoints += 0;
+  }
+};
 
 const play = () => {
   // 3.0 Visibility of results on
@@ -99,7 +128,6 @@ const play = () => {
   // 3.1 Random formula to have a number from 1 to 3 inclusive for computer choice
 
   const randomNumber = Math.floor(Math.random() * 3) + 1;
-  let randomComputerChoice;
   if (randomNumber === 3) {
     randomComputerChoice = "rock";
     computerChoiceOutput.src = "assets/imgs/rockFullC.png";
@@ -111,9 +139,7 @@ const play = () => {
     computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
   }
 
-  //  3.2 Handle User Choice
-
-  let userChoice;
+  //  3.3 Handle User Choice
 
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
@@ -123,44 +149,65 @@ const play = () => {
         scissorsImg.src = "assets/gif/scissors.gif";
         papperImg.src = "assets/gif/papper.gif";
         rockImg.src = "assets/imgs/rockFull.png";
+        winRound();
       } else if (userChoice === "papper") {
         userChoiceOutput.src = "assets/imgs/papperFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/imgs/papperFull.png";
+        winRound();
       } else {
         userChoiceOutput.src = "assets/imgs/scissorsFull.png";
         rockImg.src = "assets/gif/rock.gif";
         papperImg.src = "assets/gif/papper.gif";
         scissorsImg.src = "assets/imgs/scissorsFull.png";
+        winRound();
       }
     }
   }
 
-  // 3.2 Declare the rules to win
+  // console.log(userChoice, randomComputerChoice);
+  // console.log(userPoints, computerPoints);
 
-  if (userChoice === randomComputerChoice) {
-    // no win
-    userPoints += 0;
-    computerPoints += 0;
-  } else if (
-    (userChoice === "rock" && randomComputerChoice === "scissors") ||
-    (userChoice === "scissors" && randomComputerChoice === "paper") ||
-    (userChoice === "paper" && randomComputerChoice === "rock")
-  ) {
-    // User wins
-    userPoints++;
-  } else {
-    // Computer wins
-    computerPoints++;
-  }
+  // console.log("2", userChoice, randomComputerChoice);
+  console.log("2", userPoints, computerPoints);
 
-  // Add style to resalt the winner
+  totalUserPoints += userPoints;
+  console.log("A", totalUserPoints, userPoints);
 
-  if (userPoints > computerPoints) {
+  totalComputerPoints += computerPoints;
+
+  console.log("B", totalComputerPoints, computerPoints);
+
+  //This old version: wenn i choose papper and computer choose rock, win the computer?
+
+  // const playOneRound = () => {
+  //   if (userChoice === randomComputerChoice) {
+  //     // no win
+  //     userPoints += 0;
+  //     computerPoints += 0;
+  //   } else if (
+  //     (userChoice === "rock" && randomComputerChoice === "scissors") ||
+  //     (userChoice === "scissors" && randomComputerChoice === "paper") ||
+  //     (userChoice === "paper" && randomComputerChoice === "rock")
+  //   ) {
+  //     // User wins
+  //     userPoints++;
+  //   }
+  //   {
+  //     // Computer wins
+  //     computerPoints++;
+  //   }
+  // };
+
+  // // User wins
+
+  if (totalUserPoints > totalComputerPoints) {
+    // Add style to resalt the winner
+
     userPointsOutput.classList.add("more-points");
     computerPointsOutput.classList.remove("more-points");
-  } else if (computerPoints > userPoints) {
+  } else if (totalComputerPoints > totalUserPoints) {
     computerPointsOutput.classList.add("more-points");
     userPointsOutput.classList.remove("more-points");
   } else {
@@ -168,8 +215,8 @@ const play = () => {
     computerPointsOutput.classList.remove("more-points");
   }
 
-  userPointsOutput.innerHTML = userPoints;
-  computerPointsOutput.innerHTML = computerPoints;
+  userPointsOutput.innerHTML = totalUserPoints;
+  computerPointsOutput.innerHTML = totalComputerPoints;
 
   // 3.3 Rounds Handling after click
 
