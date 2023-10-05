@@ -126,7 +126,6 @@ const play = () => {
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
       userChoice = playRadio[i].value;
-      console.log("????", userChoice, typeof userChoice);
       if (userChoice === "rock") {
         console.log("----------1-rock");
         userChoiceOutput.src = "assets/imgs/rockFull.png";
