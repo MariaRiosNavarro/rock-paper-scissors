@@ -127,7 +127,6 @@ const play = () => {
     if (playRadio[i].checked == true) {
       userChoice = playRadio[i].value;
       if (userChoice === "rock") {
-        console.log("----------1-rock");
         userChoiceOutput.src = "assets/imgs/rockFull.png";
         scissorsImg.src = "assets/gif/scissors.gif";
         paperImg.src = "assets/gif/paper.gif";
