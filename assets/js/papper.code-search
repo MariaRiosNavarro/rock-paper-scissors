@@ -1,0 +1,95 @@
+# Query: papper
+# ContextLines: 1
+
+21 Ergebnisse - 2-Dateien
+
+index.html:
+    5      <link rel="stylesheet" href="./assets/css/styles.css" />
+    6      <link rel="stylesheet" href="./assets/css/styles.css" />
+    7:     <title>Rock Paper Scissors</title>
+
+    7    </head>
+    8    </head>
+
+  105                  <img
+  106                  <img
+  107:                   data-js="paper-img"
+  108:                   src="./assets/gif/paper.gif"
+
+  108                    alt="paper"
+  109                    alt="paper"
+
+  114                    value="paper"
+  115                    value="paper"
+  116:                   data-js="paper"
+  116                  />
+  117                  />
+
+assets/js/main.js:
+   40  const rockImg = document.querySelector('[data-js="rock-img"]');
+   41  const rockImg = document.querySelector('[data-js="rock-img"]');
+   42: const paper = document.querySelector('[data-js="paper"]');
+   43: const paperImg = document.querySelector('[data-js="paper-img"]');
+
+   43  const scissors = document.querySelector('[data-js="scissors"]');
+   44  const scissors = document.querySelector('[data-js="scissors"]');
+
+  107      randomComputerChoice = "paper";
+  108      randomComputerChoice = "paper";
+  109:     computerChoiceOutput.src = "assets/imgs/paperFullC.png";
+
+  109    } else {
+  110    } else {
+
+  118    //#We need to add the game (rock->win->scissors,
+  119    //#We need to add the game (rock->win->scissors,
+  120:   //#scissors->win->paper, paper->win->scissors etc..) in the loop
+
+  120    //#I have integrated the game function according
+  121    //#I have integrated the game function according
+
+  132          scissorsImg.src = "assets/gif/scissors.gif";
+  133          scissorsImg.src = "assets/gif/scissors.gif";
+  134:         paperImg.src = "assets/gif/paper.gif";
+
+  134          rockImg.src = "assets/imgs/rockFull.png";
+  135          rockImg.src = "assets/imgs/rockFull.png";
+
+  144        } else if (userChoice === "paper") {
+  145        } else if (userChoice === "paper") {
+  146:         userChoiceOutput.src = "assets/imgs/paperFull.png";
+
+  146          scissorsImg.src = "assets/gif/scissors.gif";
+  147          rockImg.src = "assets/gif/rock.gif";
+  148          rockImg.src = "assets/gif/rock.gif";
+  149:         paperImg.src = "assets/imgs/paperFull.png";
+
+  149          // !play handler if user choose paper
+  150          // !play handler if user choose paper
+
+  160          rockImg.src = "assets/gif/rock.gif";
+  161          rockImg.src = "assets/gif/rock.gif";
+  162:         paperImg.src = "assets/gif/paper.gif";
+
+  162          scissorsImg.src = "assets/imgs/scissorsFull.png";
+  163          scissorsImg.src = "assets/imgs/scissorsFull.png";
+
+  207      rock.removeEventListener("click", play);
+  208      rock.removeEventListener("click", play);
+  209:     paper.removeEventListener("click", play);
+
+  209      scissors.removeEventListener("click", play);
+  210      scissors.removeEventListener("click", play);
+
+  218      rockImg.src = "assets/gif/rock.gif";
+  219      rockImg.src = "assets/gif/rock.gif";
+  220:     paperImg.src = "assets/gif/paper.gif";
+
+  220      scissorsImg.src = "assets/gif/scissors.gif";
+  221      scissorsImg.src = "assets/gif/scissors.gif";
+
+  225  rock.addEventListener("click", play);
+  226  rock.addEventListener("click", play);
+  227: paper.addEventListener("click", play);
+  227  scissors.addEventListener("click", play);
+  228  scissors.addEventListener("click", play);
