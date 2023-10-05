@@ -112,7 +112,7 @@ const play = () => {
     computerChoiceOutput.src = "assets/imgs/scissorsFullC.png";
   }
 
-  //--  3.3 Handle User Choice
+  //--  3.2 Handle User Choice
 
   for (let i = 0; i < playRadio.length; i++) {
     if (playRadio[i].checked == true) {
@@ -136,29 +136,54 @@ const play = () => {
     }
   }
 
-  // ----3.2 Declare the rules to win . Play game function
+  // ----3.3 Declare the rules to win . Play game function
 
-  if (userChoice === randomComputerChoice) {
-    // no win
-    userPoints += 0;
-    computerPoints += 0;
-  } else if (
-    (userChoice === "rock" && randomComputerChoice === "scissors") ||
-    (userChoice === "scissors" && randomComputerChoice === "paper") ||
-    (userChoice === "paper" && randomComputerChoice === "rock")
-  ) {
-    // User wins
-    userPoints++;
-  } else {
-    // Computer wins
-    computerPoints++;
+  // if (userChoice === randomComputerChoice) {
+  //   // no win
+  //   userPoints += 0;
+  //   computerPoints += 0;
+  // } else if (
+  //   (userChoice === "rock" && randomComputerChoice === "scissors") ||
+  //   (userChoice === "scissors" && randomComputerChoice === "paper") ||
+  //   (userChoice === "paper" && randomComputerChoice === "rock")
+  // ) {
+  //   // User wins
+  //   userPoints++;
+  // } else {
+  //   // Computer wins
+  //   computerPoints++;
+  // }
+
+  switch (true) {
+    case userChoice === randomComputerChoice:
+      // Unentschieden
+      userPoints += 0;
+      computerPoints += 0;
+      console.log(userChoice, randomComputerChoice);
+      break;
+    case userChoice === "rock" && randomComputerChoice === "scissors":
+    case userChoice === "scissors" && randomComputerChoice === "paper":
+    case userChoice === "paper" && randomComputerChoice === "rock":
+      // Benutzer gewinnt
+      console.log(userChoice, randomComputerChoice);
+      userPoints++;
+      break;
+    case randomComputerChoice === "rock" && userChoice === "scissors":
+    case randomComputerChoice === "scissors" && userChoice === "paper":
+    case randomComputerChoice === "paper" && userChoice === "rock":
+      // Computer gewinnt
+      console.log(userChoice, randomComputerChoice);
+      computerPoints++;
+      break;
+    default:
+      console.log("?");
+      break;
   }
 
-  // // User wins
+  // --3.4 --Pointshandle
 
   if (userPoints > computerPoints) {
     // Add style to resalt the winner
-
     userPointsOutput.classList.add("more-points");
     computerPointsOutput.classList.remove("more-points");
   } else if (computerPoints > userPoints) {
