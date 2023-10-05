@@ -174,7 +174,7 @@ const play = () => {
     }
   }
 
-  // --3.4 --Pointshandle
+  // --3.3 --Pointshandle
 
   if (userPoints > computerPoints) {
     userPointsOutput.classList.add("more-points");
@@ -190,19 +190,19 @@ const play = () => {
   userPointsOutput.innerHTML = userPoints;
   computerPointsOutput.innerHTML = computerPoints;
 
-  // ---3.3! Rounds Handling after click
+  // ---3.4 Rounds Handling after click
 
-  // 3.3.b- We remove -1 only until we reach 0
+  // -3.4.a- We remove -1 only until we reach 0
 
   if (rounds > 0) {
     rounds--;
   }
   roundsRest.innerHTML = rounds;
 
-  // 3.3.d- If we reach 0 we declare the winner and set the counter to 0
-  // (even if it has finished, if it continues to click the counter
-  // does not move to negative. We use <= instead === becouse we need
-  // to count the last point.
+  // -3.4.b- If we reach 0 we declare the winner and set the counter to 0
+  // -(even if it has finished, if it continues to click the counter
+  // -does not move to negative. We use <= instead === becouse we need
+  // -to count the last point.
 
   if (rounds <= 0) {
     rock.removeEventListener("click", play);
@@ -223,7 +223,6 @@ const play = () => {
 };
 
 //--- 4. we give the function to the 3 buttons
-// restartBtn.classList.add("restart-btn-animation")
 rock.addEventListener("click", play);
 papper.addEventListener("click", play);
 scissors.addEventListener("click", play);
