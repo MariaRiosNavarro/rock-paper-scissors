@@ -1,4 +1,5 @@
 //-- 1. Save variables
+
 //-- 1.1 Outputs
 
 const outputWrapper = document.querySelector('[data-js="output-wrapper"]');
@@ -43,7 +44,8 @@ const papperImg = document.querySelector('[data-js="papper-img"]');
 const scissors = document.querySelector('[data-js="scissors"]');
 const scissorsImg = document.querySelector('[data-js="scissors-img"]');
 
-// 1.4 restart
+//-- 1.4 restart
+
 restartBtn.style.display = "none";
 
 const restart = () => {
@@ -52,13 +54,15 @@ const restart = () => {
   outputWrapper.style.visibility = "hidden";
 };
 
-// 2. Help Variables
+//-- 2. Help Variables
 
 let rounds = 0;
 let restRound;
 let userPoints = 0;
 let computerPoints = 0;
 let roundsVal = 0;
+let userChoice;
+let randomComputerChoice;
 
 // -- 2.1 Rounds
 
@@ -88,11 +92,6 @@ round7.addEventListener("click", outputRoundValue);
 
 const winMessage = `<div class="waviy"><span style="--i:1">🏆</span><p></p><span style="--i:2">Y</span><span style="--i:3">O</span><span style="--i:4">U</span><p></p><span class="big" style="--i:5">🏆</span><p></p><span style="--i:6">W</span><span style="--i:7">I</span><span style="--i:8">N</span> <p></p><span style="--i:9">🏆</span></div>`;
 const drawMessage = `<div class="draw"><span class="letter letter-1" style="--i:1">D</span><span class="letter letter-2" style="--i:2">R</span><span class="letter letter-3"style="--i:3" >A</span><span class="letter letter-4" style="--i:4">W</span></div>`;
-
-let totalUserPoints = 0;
-let totalComputerPoints = 0;
-let userChoice;
-let randomComputerChoice;
 
 const play = () => {
   // ---3.0 Visibility of results on
